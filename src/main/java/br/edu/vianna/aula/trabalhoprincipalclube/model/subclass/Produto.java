@@ -9,7 +9,7 @@ package br.edu.vianna.aula.trabalhoprincipalclube.model.subclass;
  *
  * @author Leonardo
  */
-class Produto {
+public class Produto {
     private int id;
     private Enum tipo;
     private String descricao;
