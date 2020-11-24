@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.vianna.aula.trabalhoprincipalclube.Model;
+package br.edu.vianna.aula.trabalhoprincipalclube.model.subclass;
 
 import java.util.Date;
 
@@ -14,12 +14,12 @@ import java.util.Date;
 public class Mensalidade {
     private int idMensalidade,idAssociado;
     private boolean foiPago;
-    private Date dataVencimento;
+    private String dataVencimento;
 
     public Mensalidade() {
     }
 
-    public Mensalidade(int idMensalidade, int idAssociado, boolean foiPago, Date dataVencimento) {
+    public Mensalidade(int idMensalidade, int idAssociado, boolean foiPago, String dataVencimento) {
         this.idMensalidade = idMensalidade;
         this.idAssociado = idAssociado;
         this.foiPago = foiPago;
@@ -50,14 +50,14 @@ public class Mensalidade {
         this.foiPago = foiPago;
     }
 
-    public Date getDataVencimento() {
+    public String getDataVencimento() {
         return dataVencimento;
     }
 
-    public void setDataVencimento(Date dataVencimento) {
+    public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
-    
+
     public double CalcularMensalidade (){
         return 0;
         // Conta do Bar + Mensalidade

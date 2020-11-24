@@ -3,24 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.vianna.aula.trabalhoprincipalclube.Model;
+package br.edu.vianna.aula.trabalhoprincipalclube.model.subclass;
 
 /**
  *
  * @author Leonardo
  */
 class Produto {
-    private int idProduto;
+    private int id;
     private Enum tipo;
     private String descricao;
     private double valor;
-
-    public int getIdProduto() {
-        return idProduto;
+    
+    public Produto() {
+    }
+    
+    public Produto(int idProduto, Enum tipo, String descricao, double valor) {
+        this.id = idProduto;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.valor = valor;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Enum getTipo() {
@@ -47,13 +57,4 @@ class Produto {
         this.valor = valor;
     }
 
-    public Produto(int idProduto, Enum tipo, String descricao, double valor) {
-        this.idProduto = idProduto;
-        this.tipo = tipo;
-        this.descricao = descricao;
-        this.valor = valor;
-    }
-
-    public Produto() {
-    }
 }

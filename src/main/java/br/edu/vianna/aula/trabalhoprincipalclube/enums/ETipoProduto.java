@@ -3,15 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.vianna.aula.trabalhoprincipalclube.ClassesEnum;
+package br.edu.vianna.aula.trabalhoprincipalclube.enums;
 
 /**
  *
  * @author Leonardo
  */
-public enum EnumTipoProduto {
+public enum ETipoProduto {
         Almoco(1, "1 - Almoço)"),
 	Filho(2, "2 - Lanche");
+    private int codigo;
+    private String descricao;
+        
+    private ETipoProduto() {
+    }
+    
+    private ETipoProduto(int codigo, String descricao) {
+        this.codigo = codigo;
+        this.descricao = descricao;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -29,14 +39,4 @@ public enum EnumTipoProduto {
         this.descricao = descricao;
     }
 
-    private EnumTipoProduto(int codigo, String descricao) {
-        this.codigo = codigo;
-        this.descricao = descricao;
-    }
-
-    private EnumTipoProduto() {
-    }
-        
-        private int codigo;
-        private String descricao;
 }

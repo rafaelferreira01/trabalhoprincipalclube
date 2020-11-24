@@ -3,22 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.vianna.aula.trabalhoprincipalclube.Model;
+package br.edu.vianna.aula.trabalhoprincipalclube.model.subclass;
 
 /**
  *
  * @author Leonardo
  */
 public class Banco {
-    int idBanco;
+    int id;
     String nomeBanco, agencia, conta;
 
-    public int getIdBanco() {
-        return idBanco;
+    public Banco() {
     }
 
-    public void setIdBanco(int idBanco) {
-        this.idBanco = idBanco;
+    public Banco(int id, String nomeBanco, String agencia, String conta) {
+        this.id = id;
+        this.nomeBanco = nomeBanco;
+        this.agencia = agencia;
+        this.conta = conta;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNomeBanco() {
@@ -43,16 +53,6 @@ public class Banco {
 
     public void setConta(String conta) {
         this.conta = conta;
-    }
-
-    public Banco(int idBanco, String nomeBanco, String agencia, String conta) {
-        this.idBanco = idBanco;
-        this.nomeBanco = nomeBanco;
-        this.agencia = agencia;
-        this.conta = conta;
-    }
-
-    public Banco() {
     }
     
 }
