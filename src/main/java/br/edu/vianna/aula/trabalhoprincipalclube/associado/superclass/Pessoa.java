@@ -19,8 +19,7 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int idPessoa, String nome, String dataNascimento) {
-        this.idPessoa = idPessoa;
+    public Pessoa(String nome, String dataNascimento) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
     }

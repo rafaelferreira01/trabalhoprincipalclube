@@ -29,24 +29,32 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpMenu = new javax.swing.JPanel();
         jbHome1 = new javax.swing.JButton();
-        jbHome2 = new javax.swing.JButton();
-        jbHome3 = new javax.swing.JButton();
+        jbBar = new javax.swing.JButton();
+        jbAssociado = new javax.swing.JButton();
+        jbUsuario = new javax.swing.JButton();
         jpPrincipal = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jspAnimais = new javax.swing.JScrollPane();
-        jtAnimais = new javax.swing.JTable();
+        jpBar = new javax.swing.JPanel();
+        jspBar = new javax.swing.JScrollPane();
+        jtBar = new javax.swing.JTable();
         jbAddAnimal = new javax.swing.JButton();
         jbEditAnimal = new javax.swing.JButton();
         jbRemoveAnimal = new javax.swing.JButton();
         jbRefreshAnimal = new javax.swing.JButton();
-        jbRefreshAnimal1 = new javax.swing.JButton();
-        jbRefreshAnimal2 = new javax.swing.JButton();
-        jbRefreshAnimal3 = new javax.swing.JButton();
-        jbRefreshAnimal4 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jpAssociado = new javax.swing.JPanel();
+        jspAssociado = new javax.swing.JScrollPane();
+        jtAssociado = new javax.swing.JTable();
+        jbAddAssociado = new javax.swing.JButton();
+        jbEditAssociado = new javax.swing.JButton();
+        jbRemoveAssociado = new javax.swing.JButton();
+        jbRefreshAssociado = new javax.swing.JButton();
+        jbAssociadoDependente = new javax.swing.JButton();
+        jpUsuario = new javax.swing.JPanel();
+        jspUsuario = new javax.swing.JScrollPane();
+        jtUsuario = new javax.swing.JTable();
+        jbAddUsuario = new javax.swing.JButton();
+        jbEditUsuario = new javax.swing.JButton();
+        jbRemoveUsuario = new javax.swing.JButton();
+        jbRefreshUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -64,32 +72,41 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jbHome2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bar.png"))); // NOI18N
-        jbHome2.setToolTipText("Inicio");
-        jbHome2.addActionListener(new java.awt.event.ActionListener() {
+        jbBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bar.png"))); // NOI18N
+        jbBar.setToolTipText("Inicio");
+        jbBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbHome2ActionPerformed(evt);
+                jbBarActionPerformed(evt);
             }
         });
 
-        jbHome3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/wrestler64.png"))); // NOI18N
-        jbHome3.setToolTipText("Inicio");
-        jbHome3.addActionListener(new java.awt.event.ActionListener() {
+        jbAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/wrestler64.png"))); // NOI18N
+        jbAssociado.setToolTipText("Inicio");
+        jbAssociado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbHome3ActionPerformed(evt);
+                jbAssociadoActionPerformed(evt);
             }
         });
+
+        jbUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computer.png"))); // NOI18N
+        jbUsuario.setToolTipText("Inicio");
 
         javax.swing.GroupLayout jpMenuLayout = new javax.swing.GroupLayout(jpMenu);
         jpMenu.setLayout(jpMenuLayout);
         jpMenuLayout.setHorizontalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbHome1)
-                    .addComponent(jbHome3)
-                    .addComponent(jbHome2)))
+                    .addGroup(jpMenuLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbHome1)
+                            .addComponent(jbAssociado)
+                            .addComponent(jbBar)))
+                    .addGroup(jpMenuLayout.createSequentialGroup()
+                        .addComponent(jbUsuario)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jpMenuLayout.setVerticalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,17 +114,19 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jbHome1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbHome2)
+                .addComponent(jbBar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbHome3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jbAssociado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbUsuario)
+                .addGap(23, 23, 23))
         );
 
         jpPrincipal.setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+        jpBar.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
 
-        jtAnimais.setModel(new javax.swing.table.DefaultTableModel(
+        jtBar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -118,7 +137,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jspAnimais.setViewportView(jtAnimais);
+        jspBar.setViewportView(jtBar);
 
         jbAddAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
         jbAddAnimal.setToolTipText("Adicionar");
@@ -152,54 +171,26 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jbRefreshAnimal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
-        jbRefreshAnimal1.setToolTipText("Atualizar");
-
-        jbRefreshAnimal2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
-        jbRefreshAnimal2.setToolTipText("Atualizar");
-
-        jbRefreshAnimal3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
-        jbRefreshAnimal3.setToolTipText("Atualizar");
-
-        jbRefreshAnimal4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/family (32).png"))); // NOI18N
-        jbRefreshAnimal4.setToolTipText("Atualizar");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jspAnimais, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+        javax.swing.GroupLayout jpBarLayout = new javax.swing.GroupLayout(jpBar);
+        jpBar.setLayout(jpBarLayout);
+        jpBarLayout.setHorizontalGroup(
+            jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBarLayout.createSequentialGroup()
+                .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jbAddAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbRemoveAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbRefreshAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbEditAnimal))
-                    .addComponent(jbRefreshAnimal4)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbRefreshAnimal1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbRefreshAnimal2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbRefreshAnimal3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbAddAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRemoveAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRefreshAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbEditAnimal))
+                .addGap(8, 8, 8))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspAnimais, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        jpBarLayout.setVerticalGroup(
+            jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBarLayout.createSequentialGroup()
+                .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addGroup(jpBarLayout.createSequentialGroup()
                         .addComponent(jbAddAnimal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbEditAnimal)
@@ -207,73 +198,176 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(jbRemoveAnimal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbRefreshAnimal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbRefreshAnimal4)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbRefreshAnimal1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbRefreshAnimal2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbRefreshAnimal3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jpPrincipal.add(jPanel1, "card2");
+        jpPrincipal.add(jpBar, "card2");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Cadastro de Associados"));
+        jpAssociado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
 
-        jLabel2.setText("jLabel2");
+        jtAssociado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jspAssociado.setViewportView(jtAssociado);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(305, 305, 305)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jbAddAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
+        jbAddAssociado.setToolTipText("Adicionar");
+        jbAddAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbEditAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        jbEditAssociado.setToolTipText("Editar");
+        jbEditAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbRemoveAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
+        jbRemoveAssociado.setToolTipText("Excluir");
+        jbRemoveAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRemoveAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbRefreshAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
+        jbRefreshAssociado.setToolTipText("Atualizar");
+        jbRefreshAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRefreshAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbAssociadoDependente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/family (32).png"))); // NOI18N
+        jbAssociadoDependente.setToolTipText("Atualizar");
+
+        javax.swing.GroupLayout jpAssociadoLayout = new javax.swing.GroupLayout(jpAssociado);
+        jpAssociado.setLayout(jpAssociadoLayout);
+        jpAssociadoLayout.setHorizontalGroup(
+            jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoLayout.createSequentialGroup()
+                .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jbAddAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbRemoveAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbRefreshAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbEditAssociado))
+                    .addComponent(jbAssociadoDependente)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jpAssociadoLayout.setVerticalGroup(
+            jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoLayout.createSequentialGroup()
+                .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addGroup(jpAssociadoLayout.createSequentialGroup()
+                        .addComponent(jbAddAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbEditAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRemoveAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRefreshAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbAssociadoDependente)))
+                .addContainerGap())
         );
 
-        jpPrincipal.add(jPanel2, "card2");
+        jpPrincipal.add(jpAssociado, "card2");
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "xfdgdg"));
+        jpUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
 
-        jLabel3.setText("jLabel3");
+        jtUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jspUsuario.setViewportView(jtUsuario);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(305, 305, 305)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jbAddUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
+        jbAddUsuario.setToolTipText("Adicionar");
+        jbAddUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddUsuarioActionPerformed(evt);
+            }
+        });
+
+        jbEditUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        jbEditUsuario.setToolTipText("Editar");
+        jbEditUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditUsuarioActionPerformed(evt);
+            }
+        });
+
+        jbRemoveUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
+        jbRemoveUsuario.setToolTipText("Excluir");
+        jbRemoveUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRemoveUsuarioActionPerformed(evt);
+            }
+        });
+
+        jbRefreshUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
+        jbRefreshUsuario.setToolTipText("Atualizar");
+        jbRefreshUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRefreshUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpUsuarioLayout = new javax.swing.GroupLayout(jpUsuario);
+        jpUsuario.setLayout(jpUsuarioLayout);
+        jpUsuarioLayout.setHorizontalGroup(
+            jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpUsuarioLayout.createSequentialGroup()
+                .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbAddUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRemoveUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRefreshUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbEditUsuario))
+                .addGap(8, 8, 8))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel3)
-                .addContainerGap(452, Short.MAX_VALUE))
+        jpUsuarioLayout.setVerticalGroup(
+            jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpUsuarioLayout.createSequentialGroup()
+                .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addGroup(jpUsuarioLayout.createSequentialGroup()
+                        .addComponent(jbAddUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbEditUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRemoveUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRefreshUsuario)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
-        jpPrincipal.add(jPanel3, "card2");
+        jpPrincipal.add(jpUsuario, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,26 +394,26 @@ public class NewJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbHome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHome3ActionPerformed
+    private void jbAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAssociadoActionPerformed
         jpPrincipal.removeAll();
         jpPrincipal.add(jPanel3);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
-    }//GEN-LAST:event_jbHome3ActionPerformed
+    }//GEN-LAST:event_jbAssociadoActionPerformed
 
     private void jbHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHome1ActionPerformed
         jpPrincipal.removeAll();
-        jpPrincipal.add(jPanel1);
+        jpPrincipal.add(jpBar);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
     }//GEN-LAST:event_jbHome1ActionPerformed
 
-    private void jbHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHome2ActionPerformed
+    private void jbBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBarActionPerformed
         jpPrincipal.removeAll();
         jpPrincipal.add(jPanel2);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
-    }//GEN-LAST:event_jbHome2ActionPerformed
+    }//GEN-LAST:event_jbBarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         JDViewLogin login = new JDViewLogin(this, true);
@@ -339,12 +433,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbEditAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAnimalActionPerformed
         //ALTERAR
-        int linha = jtAnimais.getSelectedRow();
+        int linha = jtBar.getSelectedRow();
 
         if(linha < 0){
             JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
         }else{
-            int id = (int) jtAnimais.getValueAt(linha, 0);
+            int id = (int) jtBar.getValueAt(linha, 0);
 
             try {
                 Animal usu = new DAOAnimal().buscarPorId(id);
@@ -369,18 +463,18 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbRemoveAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAnimalActionPerformed
         //REMOVER
-        int linha = jtAnimais.getSelectedRow();
+        int linha = jtBar.getSelectedRow();
 
         if(linha < 0){
             JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
         }else{
-            int id = (int) jtAnimais.getValueAt(linha, 0);
+            int id = (int) jtBar.getValueAt(linha, 0);
             if(JOptionPane.showConfirmDialog(null, "Deseja excluir a entrada selecionada?") == JOptionPane.YES_OPTION){
 
                 Animal u;
 
                 try {
-                    if(jtAnimais.getValueAt(linha, 0) == "GATO"){
+                    if(jtBar.getValueAt(linha, 0) == "GATO"){
                         u = new Gato();
                     } else {
                         u = new Cachorro();
@@ -409,6 +503,38 @@ public class NewJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
         }
     }//GEN-LAST:event_jbRefreshAnimalActionPerformed
+
+    private void jbAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAddUsuarioActionPerformed
+
+    private void jbEditUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbEditUsuarioActionPerformed
+
+    private void jbRemoveUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbRemoveUsuarioActionPerformed
+
+    private void jbRefreshUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbRefreshUsuarioActionPerformed
+
+    private void jbAddAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAddAssociadoActionPerformed
+
+    private void jbEditAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAssociadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbEditAssociadoActionPerformed
+
+    private void jbRemoveAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAssociadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbRemoveAssociadoActionPerformed
+
+    private void jbRefreshAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAssociadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbRefreshAssociadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,25 +572,33 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbAddAnimal;
+    private javax.swing.JButton jbAddAssociado;
+    private javax.swing.JButton jbAddUsuario;
+    private javax.swing.JButton jbAssociado;
+    private javax.swing.JButton jbAssociadoDependente;
+    private javax.swing.JButton jbBar;
     private javax.swing.JButton jbEditAnimal;
+    private javax.swing.JButton jbEditAssociado;
+    private javax.swing.JButton jbEditUsuario;
     private javax.swing.JButton jbHome1;
-    private javax.swing.JButton jbHome2;
-    private javax.swing.JButton jbHome3;
     private javax.swing.JButton jbRefreshAnimal;
-    private javax.swing.JButton jbRefreshAnimal1;
-    private javax.swing.JButton jbRefreshAnimal2;
-    private javax.swing.JButton jbRefreshAnimal3;
-    private javax.swing.JButton jbRefreshAnimal4;
+    private javax.swing.JButton jbRefreshAssociado;
+    private javax.swing.JButton jbRefreshUsuario;
     private javax.swing.JButton jbRemoveAnimal;
+    private javax.swing.JButton jbRemoveAssociado;
+    private javax.swing.JButton jbRemoveUsuario;
+    private javax.swing.JButton jbUsuario;
+    private javax.swing.JPanel jpAssociado;
+    private javax.swing.JPanel jpBar;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpPrincipal;
-    private javax.swing.JScrollPane jspAnimais;
-    private javax.swing.JTable jtAnimais;
+    private javax.swing.JPanel jpUsuario;
+    private javax.swing.JScrollPane jspAssociado;
+    private javax.swing.JScrollPane jspBar;
+    private javax.swing.JScrollPane jspUsuario;
+    private javax.swing.JTable jtAssociado;
+    private javax.swing.JTable jtBar;
+    private javax.swing.JTable jtUsuario;
     // End of variables declaration//GEN-END:variables
 }

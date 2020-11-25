@@ -6,6 +6,7 @@
 package br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao;
 
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.ConnectionClube;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -74,42 +75,42 @@ import java.util.ArrayList;
 
     @Override
     public Associado buscarPorId(Integer i) throws ClassNotFoundException, SQLException {
-//        Connection c = ConnectionClube.getConnection();
-//        
-//        String comando = "SELECT * FROM associado "
-//                + "WHERE  id_associado = ?;"; 
-//        PreparedStatement prepara  = c.prepareStatement(comando);
-//        prepara.setInt(1, i);
-//         
-//        Associado associado = null;
-//        ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
-//        
-//        while(rs.next()) {
-//            associado = new Associado (rs.getInt("id_associado"), rs.getString("nome"), 
-//                    rs.getString("data_nasc"), rs.getString("cpf"),rs.getString("rg"),rs.getString("telefone"));
-//        }
-//        return associado;  
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection c = ConnectionClube.getConnection();
         
+        String comando = "SELECT * FROM associado "
+                + "WHERE  id_associado = ?;"; 
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        prepara.setInt(1, i);
+         
+        Associado associado = null;
+        ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
+        
+        while(rs.next()) {//usando construtor sem Banco
+            associado = new Associado (rs.getString("cpf"), rs.getString("rg"), 
+                    rs.getString("telefone"), rs.getString("nome"),rs.getString("data_nasc"));
+            
+            associado.setMeusDependentes(new DAODependente().getDependenteAssociado(rs.getInt("id_associado")));
+        }
+        return associado;  
         
     }
 
     @Override
     public ArrayList<Associado> buscarTodos() throws ClassNotFoundException, SQLException {
-//        Connection c = ConnectionClube.getConnection();
-//        String comando = "SELECT * FROM associado;";
-//        PreparedStatement prepara  = c.prepareStatement(comando);
-//        
-//        ArrayList<Associado> lista = new ArrayList<>();
-//        ResultSet rs = prepara.executeQuery();
-//        
-//        while(rs.next()) {
-//            Associado associado = new Associado (rs.getInt("id_associado"), rs.getString("nome"), 
-//                    rs.getString("data_nasc"), rs.getString("cpf"),rs.getString("rg"),rs.getString("telefone"));
-//            lista.add(associado);
-//        }
-//        return lista;    
-throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection c = ConnectionClube.getConnection();
+        String comando = "SELECT * FROM associado;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        
+        ArrayList<Associado> lista = new ArrayList<>();
+        ResultSet rs = prepara.executeQuery();
+        
+        while(rs.next()) {//usando construtor sem Banco
+            ArrayList<Dependente> listaDependentes = new ArrayList<>();
+            Associado associado = new Associado (rs.getString("cpf"), rs.getString("rg"), 
+                    rs.getString("telefone"), rs.getString("nome"),rs.getString("dataNascimento"));
+            lista.add(associado);
+        }
+        return lista;    
     }   
     
 
@@ -117,5 +118,8 @@ throw new UnsupportedOperationException("Not supported yet."); //To change body 
     public int count() throws ClassNotFoundException, SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    
+    
     }

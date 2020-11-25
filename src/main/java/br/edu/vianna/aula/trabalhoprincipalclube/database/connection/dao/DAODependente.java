@@ -85,7 +85,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
         
         while(rs.next()) {
-             dependente = new Dependente (ETipoDependente.valueOf(rs.getString("tipo")), rs.getInt("id_dependente"), 
+             dependente = new Dependente (ETipoDependente.valueOf(rs.getString("tipo")), 
                     rs.getString("nome"), rs.getString("dataNascimento"));
         }
       
@@ -103,7 +103,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {
-            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), rs.getInt("id_dependente"), 
+            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), 
                     rs.getString("nome"), rs.getString("dataNascimento"));
             
             lista.add(dependente);
@@ -114,6 +114,28 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
     @Override
     public int count() throws ClassNotFoundException, SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ArrayList<Dependente> getDependenteAssociado(Integer i) throws ClassNotFoundException, SQLException {
+        Connection c = ConnectionClube.getConnection();
+        String comando = "SELECT * FROM dependente d "
+                + "INNER JOIN associado a ON (d.id_associado = a.id_associado) "
+                + "WHERE d.id_associado = ?;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        
+        ArrayList<Dependente> lista = new ArrayList<>();
+        
+        prepara.setInt(1, i);
+        
+        ResultSet rs = prepara.executeQuery();
+        
+        while(rs.next()) {
+            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), 
+                    rs.getString("nome"), rs.getString("dataNascimento"));
+            
+            lista.add(dependente);
+        }
+        return lista; 
     }
     
 }

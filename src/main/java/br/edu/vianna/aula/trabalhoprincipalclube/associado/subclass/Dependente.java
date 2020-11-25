@@ -17,8 +17,8 @@ public class Dependente extends Pessoa{
     public Dependente() {
     }
 
-    public Dependente(Enum tipo, int idPessoa, String nome, String dataNascimento) {
-        super(idPessoa, nome, dataNascimento);
+    public Dependente(Enum tipo, String nome, String dataNascimento) {
+        super(nome, dataNascimento);
         this.tipo = tipo;
     }
 
