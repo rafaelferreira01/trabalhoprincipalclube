@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author suporte
+ * @author Leonardo
  */
 public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
 
@@ -44,7 +44,8 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         Connection c = ConnectionClube.getConnection();
         
         String comando = "UPDATE dependente SET "
-                + "nome = ?, data_nasc = ?, tipo = ?, id_dependente = ?;";
+                + "nome = ?, data_nasc = ?, tipo = ?, id_dependente = ?"
+                + "WHERE id_dependente = ?;";
         
         PreparedStatement prepara  = c.prepareStatement(comando);
         
