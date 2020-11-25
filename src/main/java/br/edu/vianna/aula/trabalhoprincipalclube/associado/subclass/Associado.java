@@ -15,10 +15,10 @@ import java.util.ArrayList;
  */
 public class Associado extends Pessoa{
     
-      String cpf;
-      String rg;
-      String telefone;
-      Banco banco;
+      private String cpf;
+      private String rg;
+      private String telefone;
+      private Banco banco;
       private ArrayList<Dependente> meusDependentes;
       
       public Associado() {
@@ -32,6 +32,7 @@ public class Associado extends Pessoa{
         this.telefone = telefone;
         this.banco = banco;
         this.meusDependentes = meusDependentes;
+        meusDependentes = new ArrayList<>();
     }
 
     public String getCpf() {
@@ -78,7 +79,7 @@ public class Associado extends Pessoa{
         this.meusDependentes.add(dep);
     }
     
-    public void removePet(int indicieDep) {
+    public void removeDependente(int indicieDep) {
         this.meusDependentes.remove(indicieDep);
     }
     
