@@ -105,14 +105,14 @@ import java.util.ArrayList;
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {//usando construtor sem Banco
-            ArrayList<Dependente> listaDependentes = new ArrayList<>();
+            ArrayList<Associado> listaAssociado = new ArrayList<>();
             Associado associado = new Associado (rs.getString("cpf"), rs.getString("rg"), 
-                    rs.getString("telefone"), rs.getString("nome"),rs.getString("dataNascimento"));
+                    rs.getString("telefone"), rs.getString("nome"),rs.getString("data_nasc"));
             lista.add(associado);
         }
         return lista;    
     }   
-    
+      
 
     @Override
     public int count() throws ClassNotFoundException, SQLException {

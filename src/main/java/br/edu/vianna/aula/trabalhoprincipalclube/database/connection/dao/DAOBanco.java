@@ -7,7 +7,6 @@ package br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao;
 
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.ConnectionClube;
 import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.Banco;
-import br.edu.vianna.aula.trabalhoprincipalclube.usuario.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,7 +78,7 @@ public class DAOBanco implements IDaoGenerics <Banco, Integer>{
         ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
         
         while(rs.next()) {
-            banco = new Banco (rs.getInt("id_banco"), rs.getString("nomeBanco"), 
+            banco = new Banco (rs.getString("nomeBanco"), 
                     rs.getString("agencia"), rs.getString("conta"));
         }
         return banco;  
@@ -96,7 +95,7 @@ public class DAOBanco implements IDaoGenerics <Banco, Integer>{
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {
-            Banco banco = new Banco (rs.getInt("id_banco"), rs.getString("nomeBanco"), 
+            Banco banco = new Banco (rs.getString("nomeBanco"), 
                     rs.getString("agencia"), rs.getString("conta"));
             lista.add(banco);
         }

@@ -8,7 +8,6 @@ package br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.ConnectionClube;
 import br.edu.vianna.aula.trabalhoprincipalclube.enums.ETipoProduto;
 import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.Produto;
-import br.edu.vianna.aula.trabalhoprincipalclube.usuario.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -81,7 +80,7 @@ public class DAOProduto implements IDaoGenerics <Produto, Integer> {
         ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
         
         while(rs.next()) {
-            produto = new Produto(rs.getInt("id_produto"), ETipoProduto.valueOf(rs.getString("tipo_produto")), 
+            produto = new Produto(ETipoProduto.valueOf(rs.getString("tipo_produto")), 
             rs.getString("descricao"), rs.getDouble("valor"));
         }
         return produto;  
@@ -98,7 +97,7 @@ public class DAOProduto implements IDaoGenerics <Produto, Integer> {
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {
-            Produto produto = new Produto (rs.getInt("id_produto"), ETipoProduto.valueOf(rs.getString("tipo_produto")), 
+            Produto produto = new Produto (ETipoProduto.valueOf(rs.getString("tipo_produto")), 
             rs.getString("descricao"), rs.getDouble("valor"));
             lista.add(produto);
         }

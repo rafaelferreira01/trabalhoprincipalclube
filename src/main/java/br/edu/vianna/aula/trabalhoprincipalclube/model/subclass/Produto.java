@@ -18,8 +18,8 @@ public class Produto {
     public Produto() {
     }
     
-    public Produto(int idProduto, Enum tipo, String descricao, double valor) {
-        this.id = idProduto;
+    public Produto(Enum tipo, String descricao, double valor) {
+        
         this.tipo = tipo;
         this.descricao = descricao;
         this.valor = valor;

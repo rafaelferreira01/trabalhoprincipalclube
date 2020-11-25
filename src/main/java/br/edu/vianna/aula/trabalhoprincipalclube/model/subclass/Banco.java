@@ -16,8 +16,8 @@ public class Banco {
     public Banco() {
     }
 
-    public Banco(int id, String nomeBanco, String agencia, String conta) {
-        this.id = id;
+    public Banco(String nomeBanco, String agencia, String conta) {
+       
         this.nomeBanco = nomeBanco;
         this.agencia = agencia;
         this.conta = conta;

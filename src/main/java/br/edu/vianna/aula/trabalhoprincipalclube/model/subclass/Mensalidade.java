@@ -13,18 +13,36 @@ import java.util.Date;
  */
 public class Mensalidade {
     private int idMensalidade,idAssociado;
-    private boolean foiPago;
+    private boolean PagamentoPendente;
     private String dataVencimento;
+    private double valorMensalidade;
+
+    public double getValorMensalidade() {
+        return valorMensalidade;
+    }
+
+    public void setValorMensalidade(double valorMensalidae) {
+        this.valorMensalidade = valorMensalidae;
+    }
 
     public Mensalidade() {
     }
 
-    public Mensalidade(int idMensalidade, int idAssociado, boolean foiPago, String dataVencimento) {
-        this.idMensalidade = idMensalidade;
-        this.idAssociado = idAssociado;
-        this.foiPago = foiPago;
+    public Mensalidade(boolean PagamentoPendente, String dataVencimento, double valorMensalidade) {
+        this.PagamentoPendente = PagamentoPendente;
         this.dataVencimento = dataVencimento;
+        this.valorMensalidade = valorMensalidade;
     }
+
+    public Mensalidade(int idAssociado, boolean PagamentoPendente, String dataVencimento, double valorMensalidade) {
+      
+        this.idAssociado = idAssociado;
+        this.PagamentoPendente = PagamentoPendente;
+        this.dataVencimento = dataVencimento;
+        this.valorMensalidade = valorMensalidade;
+    }
+
+  
 
     public int getIdMensalidade() {
         return idMensalidade;
@@ -42,14 +60,15 @@ public class Mensalidade {
         this.idAssociado = idAssociado;
     }
 
-    public boolean isFoiPago() {
-        return foiPago;
+    public boolean isPagamentoPendente() {
+        return PagamentoPendente;
     }
 
-    public void setFoiPago(boolean foiPago) {
-        this.foiPago = foiPago;
+    public void setPagamentoPendente(boolean PagamentoPendente) {
+        this.PagamentoPendente = PagamentoPendente;
     }
 
+   
     public String getDataVencimento() {
         return dataVencimento;
     }

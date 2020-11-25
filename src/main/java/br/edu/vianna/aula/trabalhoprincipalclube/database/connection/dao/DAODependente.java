@@ -86,7 +86,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         
         while(rs.next()) {
              dependente = new Dependente (ETipoDependente.valueOf(rs.getString("tipo")), 
-                    rs.getString("nome"), rs.getString("dataNascimento"));
+                    rs.getString("nome"), rs.getString("data_nasc"));
         }
       
         return dependente;  
@@ -104,7 +104,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         
         while(rs.next()) {
             Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), 
-                    rs.getString("nome"), rs.getString("dataNascimento"));
+                    rs.getString("nome"), rs.getString("data_nasc"));
             
             lista.add(dependente);
         }
@@ -131,7 +131,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         
         while(rs.next()) {
             Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), 
-                    rs.getString("nome"), rs.getString("dataNascimento"));
+                    rs.getString("nome"), rs.getString("data_nasc"));
             
             lista.add(dependente);
         }
