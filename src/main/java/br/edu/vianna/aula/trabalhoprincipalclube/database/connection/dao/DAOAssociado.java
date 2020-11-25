@@ -74,40 +74,42 @@ import java.util.ArrayList;
 
     @Override
     public Associado buscarPorId(Integer i) throws ClassNotFoundException, SQLException {
-        Connection c = ConnectionClube.getConnection();
-        
-        String comando = "SELECT * FROM associado "
-                + "WHERE  id_associado = ?;"; 
-        PreparedStatement prepara  = c.prepareStatement(comando);
-        prepara.setInt(1, i);
-         
-        Associado associado = null;
-        ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
-        
-        while(rs.next()) {
-            associado = new Associado (rs.getInt("id_associado"), rs.getString("nome"), 
-                    rs.getString("data_nasc"), rs.getString("cpf"),rs.getString("rg"),rs.getString("telefone"));
-        }
-        return associado;  
+//        Connection c = ConnectionClube.getConnection();
+//        
+//        String comando = "SELECT * FROM associado "
+//                + "WHERE  id_associado = ?;"; 
+//        PreparedStatement prepara  = c.prepareStatement(comando);
+//        prepara.setInt(1, i);
+//         
+//        Associado associado = null;
+//        ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
+//        
+//        while(rs.next()) {
+//            associado = new Associado (rs.getInt("id_associado"), rs.getString("nome"), 
+//                    rs.getString("data_nasc"), rs.getString("cpf"),rs.getString("rg"),rs.getString("telefone"));
+//        }
+//        return associado;  
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
         
     }
 
     @Override
     public ArrayList<Associado> buscarTodos() throws ClassNotFoundException, SQLException {
-        Connection c = ConnectionClube.getConnection();
-        String comando = "SELECT * FROM associado;";
-        PreparedStatement prepara  = c.prepareStatement(comando);
-        
-        ArrayList<Associado> lista = new ArrayList<>();
-        ResultSet rs = prepara.executeQuery();
-        
-        while(rs.next()) {
-            Associado associado = new Associado (rs.getInt("id_associado"), rs.getString("nome"), 
-                    rs.getString("data_nasc"), rs.getString("cpf"),rs.getString("rg"),rs.getString("telefone"));
-            lista.add(associado);
-        }
-        return lista;    
+//        Connection c = ConnectionClube.getConnection();
+//        String comando = "SELECT * FROM associado;";
+//        PreparedStatement prepara  = c.prepareStatement(comando);
+//        
+//        ArrayList<Associado> lista = new ArrayList<>();
+//        ResultSet rs = prepara.executeQuery();
+//        
+//        while(rs.next()) {
+//            Associado associado = new Associado (rs.getInt("id_associado"), rs.getString("nome"), 
+//                    rs.getString("data_nasc"), rs.getString("cpf"),rs.getString("rg"),rs.getString("telefone"));
+//            lista.add(associado);
+//        }
+//        return lista;    
+throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }   
     
 
