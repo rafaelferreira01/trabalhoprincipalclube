@@ -25,7 +25,7 @@ import java.util.ArrayList;
          Connection c = ConnectionClube.getConnection();
         
         String comando = "INSERT INTO usuario (nome, data_nasc, cpf,rg,telefone) "
-                + "VALUES (?,?,?);";
+                + "VALUES (?,?,?,?,?);";
         
         PreparedStatement prepara  = c.prepareStatement(comando);
         
