@@ -33,13 +33,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jbAssociado = new javax.swing.JButton();
         jbUsuario = new javax.swing.JButton();
         jpPrincipal = new javax.swing.JPanel();
-        jpBar = new javax.swing.JPanel();
-        jspBar = new javax.swing.JScrollPane();
-        jtBar = new javax.swing.JTable();
-        jbAddAnimal = new javax.swing.JButton();
-        jbEditAnimal = new javax.swing.JButton();
-        jbRemoveAnimal = new javax.swing.JButton();
-        jbRefreshAnimal = new javax.swing.JButton();
         jpAssociado = new javax.swing.JPanel();
         jspAssociado = new javax.swing.JScrollPane();
         jtAssociado = new javax.swing.JTable();
@@ -47,7 +40,22 @@ public class NewJFrame extends javax.swing.JFrame {
         jbEditAssociado = new javax.swing.JButton();
         jbRemoveAssociado = new javax.swing.JButton();
         jbRefreshAssociado = new javax.swing.JButton();
-        jbAssociadoDependente = new javax.swing.JButton();
+        jbAssociadoMais = new javax.swing.JButton();
+        jpAssociadoMais = new javax.swing.JPanel();
+        jspAssociadoMais = new javax.swing.JScrollPane();
+        jtDependentes = new javax.swing.JTable();
+        jbAddAssociadoMais = new javax.swing.JButton();
+        jbEditAssociadoMais = new javax.swing.JButton();
+        jbRemoveAssociadoMais = new javax.swing.JButton();
+        jbRefreshAssociadoMais = new javax.swing.JButton();
+        jbSairAnimal = new javax.swing.JButton();
+        jpBar = new javax.swing.JPanel();
+        jspBar = new javax.swing.JScrollPane();
+        jtBar = new javax.swing.JTable();
+        jbAddAnimal = new javax.swing.JButton();
+        jbEditAnimal = new javax.swing.JButton();
+        jbRemoveAnimal = new javax.swing.JButton();
+        jbRefreshAnimal = new javax.swing.JButton();
         jpUsuario = new javax.swing.JPanel();
         jspUsuario = new javax.swing.JScrollPane();
         jtUsuario = new javax.swing.JTable();
@@ -64,7 +72,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jbHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home64.png"))); // NOI18N
+        jbHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/house.png"))); // NOI18N
         jbHome1.setToolTipText("Inicio");
         jbHome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +81,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jbBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bar.png"))); // NOI18N
-        jbBar.setToolTipText("Inicio");
+        jbBar.setToolTipText("Bar");
         jbBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBarActionPerformed(evt);
@@ -81,7 +89,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jbAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/wrestler64.png"))); // NOI18N
-        jbAssociado.setToolTipText("Inicio");
+        jbAssociado.setToolTipText("Associados");
         jbAssociado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAssociadoActionPerformed(evt);
@@ -89,7 +97,12 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jbUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computer.png"))); // NOI18N
-        jbUsuario.setToolTipText("Inicio");
+        jbUsuario.setToolTipText("Usuarios");
+        jbUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpMenuLayout = new javax.swing.GroupLayout(jpMenu);
         jpMenu.setLayout(jpMenuLayout);
@@ -124,7 +137,189 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpPrincipal.setLayout(new java.awt.CardLayout());
 
-        jpBar.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+        jpAssociado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+
+        jtAssociado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jspAssociado.setViewportView(jtAssociado);
+
+        jbAddAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
+        jbAddAssociado.setToolTipText("Adicionar");
+        jbAddAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbEditAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        jbEditAssociado.setToolTipText("Editar");
+        jbEditAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbRemoveAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
+        jbRemoveAssociado.setToolTipText("Excluir");
+        jbRemoveAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRemoveAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbRefreshAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
+        jbRefreshAssociado.setToolTipText("Atualizar");
+        jbRefreshAssociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRefreshAssociadoActionPerformed(evt);
+            }
+        });
+
+        jbAssociadoMais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal-information.png"))); // NOI18N
+        jbAssociadoMais.setToolTipText("Atualizar");
+        jbAssociadoMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAssociadoMaisActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpAssociadoLayout = new javax.swing.GroupLayout(jpAssociado);
+        jpAssociado.setLayout(jpAssociadoLayout);
+        jpAssociadoLayout.setHorizontalGroup(
+            jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoLayout.createSequentialGroup()
+                .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jbAddAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbRemoveAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbRefreshAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbEditAssociado))
+                    .addComponent(jbAssociadoMais)))
+        );
+        jpAssociadoLayout.setVerticalGroup(
+            jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoLayout.createSequentialGroup()
+                .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addGroup(jpAssociadoLayout.createSequentialGroup()
+                        .addComponent(jbAddAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbEditAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRemoveAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRefreshAssociado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbAssociadoMais)))
+                .addContainerGap())
+        );
+
+        jpPrincipal.add(jpAssociado, "card2");
+
+        jpAssociadoMais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+
+        jtDependentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jspAssociadoMais.setViewportView(jtDependentes);
+
+        jbAddAssociadoMais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
+        jbAddAssociadoMais.setToolTipText("Adicionar");
+        jbAddAssociadoMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddAssociadoMaisActionPerformed(evt);
+            }
+        });
+
+        jbEditAssociadoMais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        jbEditAssociadoMais.setToolTipText("Editar");
+        jbEditAssociadoMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditAssociadoMaisActionPerformed(evt);
+            }
+        });
+
+        jbRemoveAssociadoMais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
+        jbRemoveAssociadoMais.setToolTipText("Excluir");
+        jbRemoveAssociadoMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRemoveAssociadoMaisActionPerformed(evt);
+            }
+        });
+
+        jbRefreshAssociadoMais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
+        jbRefreshAssociadoMais.setToolTipText("Atualizar");
+        jbRefreshAssociadoMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRefreshAssociadoMaisActionPerformed(evt);
+            }
+        });
+
+        jbSairAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reply (1)24.png"))); // NOI18N
+        jbSairAnimal.setToolTipText("Voltar");
+        jbSairAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSairAnimalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpAssociadoMaisLayout = new javax.swing.GroupLayout(jpAssociadoMais);
+        jpAssociadoMais.setLayout(jpAssociadoMaisLayout);
+        jpAssociadoMaisLayout.setHorizontalGroup(
+            jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                .addComponent(jspAssociadoMais, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbAddAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRemoveAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRefreshAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbEditAssociadoMais))
+                .addGap(8, 8, 8))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbSairAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jpAssociadoMaisLayout.setVerticalGroup(
+            jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
+                .addComponent(jbSairAnimal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                        .addComponent(jbAddAssociadoMais)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbEditAssociadoMais)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRemoveAssociadoMais)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRefreshAssociadoMais))
+                    .addComponent(jspAssociadoMais, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jpPrincipal.add(jpAssociadoMais, "card2");
+
+        jpBar.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Bar"));
 
         jtBar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,7 +371,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpBarLayout.setHorizontalGroup(
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
-                .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbAddAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -189,7 +384,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
                 .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                     .addGroup(jpBarLayout.createSequentialGroup()
                         .addComponent(jbAddAnimal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,92 +399,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpPrincipal.add(jpBar, "card2");
 
-        jpAssociado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
-
-        jtAssociado.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jspAssociado.setViewportView(jtAssociado);
-
-        jbAddAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
-        jbAddAssociado.setToolTipText("Adicionar");
-        jbAddAssociado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAddAssociadoActionPerformed(evt);
-            }
-        });
-
-        jbEditAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
-        jbEditAssociado.setToolTipText("Editar");
-        jbEditAssociado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEditAssociadoActionPerformed(evt);
-            }
-        });
-
-        jbRemoveAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
-        jbRemoveAssociado.setToolTipText("Excluir");
-        jbRemoveAssociado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRemoveAssociadoActionPerformed(evt);
-            }
-        });
-
-        jbRefreshAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
-        jbRefreshAssociado.setToolTipText("Atualizar");
-        jbRefreshAssociado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRefreshAssociadoActionPerformed(evt);
-            }
-        });
-
-        jbAssociadoDependente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/family (32).png"))); // NOI18N
-        jbAssociadoDependente.setToolTipText("Atualizar");
-
-        javax.swing.GroupLayout jpAssociadoLayout = new javax.swing.GroupLayout(jpAssociado);
-        jpAssociado.setLayout(jpAssociadoLayout);
-        jpAssociadoLayout.setHorizontalGroup(
-            jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpAssociadoLayout.createSequentialGroup()
-                .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jbAddAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbRemoveAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbRefreshAssociado, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbEditAssociado))
-                    .addComponent(jbAssociadoDependente)))
-        );
-        jpAssociadoLayout.setVerticalGroup(
-            jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpAssociadoLayout.createSequentialGroup()
-                .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
-                    .addGroup(jpAssociadoLayout.createSequentialGroup()
-                        .addComponent(jbAddAssociado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbEditAssociado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbRemoveAssociado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbRefreshAssociado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbAssociadoDependente)))
-                .addContainerGap())
-        );
-
-        jpPrincipal.add(jpAssociado, "card2");
-
-        jpUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+        jpUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Usuario"));
 
         jtUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -341,7 +451,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpUsuarioLayout.setHorizontalGroup(
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpUsuarioLayout.createSequentialGroup()
-                .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbAddUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -354,7 +464,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpUsuarioLayout.createSequentialGroup()
                 .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                     .addGroup(jpUsuarioLayout.createSequentialGroup()
                         .addComponent(jbAddUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,7 +506,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAssociadoActionPerformed
         jpPrincipal.removeAll();
-        jpPrincipal.add(jPanel3);
+        jpPrincipal.add(jpAssociado);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
     }//GEN-LAST:event_jbAssociadoActionPerformed
@@ -410,7 +520,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBarActionPerformed
         jpPrincipal.removeAll();
-        jpPrincipal.add(jPanel2);
+        jpPrincipal.add(jpBar);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
     }//GEN-LAST:event_jbBarActionPerformed
@@ -421,87 +531,19 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jbAddAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAnimalActionPerformed
-        try {
-            new JDAnimais(null,true).show();
-            carregaGridAnimais(new DAOAnimal().buscarTodos());
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
-        }
+
     }//GEN-LAST:event_jbAddAnimalActionPerformed
 
     private void jbEditAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAnimalActionPerformed
-        //ALTERAR
-        int linha = jtBar.getSelectedRow();
 
-        if(linha < 0){
-            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
-        }else{
-            int id = (int) jtBar.getValueAt(linha, 0);
-
-            try {
-                Animal usu = new DAOAnimal().buscarPorId(id);
-
-                JDAnimais jdc = new JDAnimais(null,true);
-
-                ArrayList<Animal> lista = new DAOAnimal().buscarTodos();
-
-                jdc.alterarRegisto(usu);
-                jdc.show();
-
-                carregaGridAnimais(new DAOAnimal().buscarTodos());
-
-            } catch (ClassNotFoundException ex) {
-                JOptionPane.showMessageDialog(null, "Driver não encontrado.");
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
-            }
-
-        }
     }//GEN-LAST:event_jbEditAnimalActionPerformed
 
     private void jbRemoveAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAnimalActionPerformed
-        //REMOVER
-        int linha = jtBar.getSelectedRow();
 
-        if(linha < 0){
-            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
-        }else{
-            int id = (int) jtBar.getValueAt(linha, 0);
-            if(JOptionPane.showConfirmDialog(null, "Deseja excluir a entrada selecionada?") == JOptionPane.YES_OPTION){
-
-                Animal u;
-
-                try {
-                    if(jtBar.getValueAt(linha, 0) == "GATO"){
-                        u = new Gato();
-                    } else {
-                        u = new Cachorro();
-                    }
-                    u.setId(id);
-                    new DAOAnimal().apagar(u);
-                    carregaGridAnimais(new DAOAnimal().buscarTodos());
-                    JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
-
-                } catch (ClassNotFoundException ex) {
-                    JOptionPane.showMessageDialog(null, "Driver não encontrado.");
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
-                }
-            }
-        }
     }//GEN-LAST:event_jbRemoveAnimalActionPerformed
 
     private void jbRefreshAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAnimalActionPerformed
-        //ATUALIZAR
-        try {
-            carregaGridAnimais(new DAOAnimal().buscarTodos());
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
-        }
+
     }//GEN-LAST:event_jbRefreshAnimalActionPerformed
 
     private void jbAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddUsuarioActionPerformed
@@ -535,6 +577,43 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jbRefreshAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAssociadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbRefreshAssociadoActionPerformed
+
+    private void jbAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAssociadoMaisActionPerformed
+        jpPrincipal.removeAll();
+        jpPrincipal.add(jpAssociadoMais);
+        jpPrincipal.repaint();
+        jpPrincipal.revalidate();
+    }//GEN-LAST:event_jbAssociadoMaisActionPerformed
+
+    private void jbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbUsuarioActionPerformed
+        jpPrincipal.removeAll();
+        jpPrincipal.add(jpUsuario);
+        jpPrincipal.repaint();
+        jpPrincipal.revalidate();
+    }//GEN-LAST:event_jbUsuarioActionPerformed
+
+    private void jbAddAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoMaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAddAssociadoMaisActionPerformed
+
+    private void jbEditAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAssociadoMaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbEditAssociadoMaisActionPerformed
+
+    private void jbRemoveAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAssociadoMaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbRemoveAssociadoMaisActionPerformed
+
+    private void jbRefreshAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAssociadoMaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbRefreshAssociadoMaisActionPerformed
+
+    private void jbSairAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairAnimalActionPerformed
+        jpPrincipal.removeAll();
+        jpPrincipal.add(jpAssociado);
+        jpPrincipal.repaint();
+        jpPrincipal.revalidate();
+    }//GEN-LAST:event_jbSairAnimalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -574,31 +653,39 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbAddAnimal;
     private javax.swing.JButton jbAddAssociado;
+    private javax.swing.JButton jbAddAssociadoMais;
     private javax.swing.JButton jbAddUsuario;
     private javax.swing.JButton jbAssociado;
-    private javax.swing.JButton jbAssociadoDependente;
+    private javax.swing.JButton jbAssociadoMais;
     private javax.swing.JButton jbBar;
     private javax.swing.JButton jbEditAnimal;
     private javax.swing.JButton jbEditAssociado;
+    private javax.swing.JButton jbEditAssociadoMais;
     private javax.swing.JButton jbEditUsuario;
     private javax.swing.JButton jbHome1;
     private javax.swing.JButton jbRefreshAnimal;
     private javax.swing.JButton jbRefreshAssociado;
+    private javax.swing.JButton jbRefreshAssociadoMais;
     private javax.swing.JButton jbRefreshUsuario;
     private javax.swing.JButton jbRemoveAnimal;
     private javax.swing.JButton jbRemoveAssociado;
+    private javax.swing.JButton jbRemoveAssociadoMais;
     private javax.swing.JButton jbRemoveUsuario;
+    private javax.swing.JButton jbSairAnimal;
     private javax.swing.JButton jbUsuario;
     private javax.swing.JPanel jpAssociado;
+    private javax.swing.JPanel jpAssociadoMais;
     private javax.swing.JPanel jpBar;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpPrincipal;
     private javax.swing.JPanel jpUsuario;
     private javax.swing.JScrollPane jspAssociado;
+    private javax.swing.JScrollPane jspAssociadoMais;
     private javax.swing.JScrollPane jspBar;
     private javax.swing.JScrollPane jspUsuario;
     private javax.swing.JTable jtAssociado;
     private javax.swing.JTable jtBar;
+    private javax.swing.JTable jtDependentes;
     private javax.swing.JTable jtUsuario;
     // End of variables declaration//GEN-END:variables
 }
