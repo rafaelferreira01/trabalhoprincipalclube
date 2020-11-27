@@ -33,7 +33,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         prepara.setString(1, d.getNome());
         prepara.setString(2, d.getDataNascimento());
         prepara.setObject(3, d.getTipo());
-        prepara.setInt(4, d.getIdPessoa());
+        prepara.setInt(4, d.getId());
         
 
         prepara.executeUpdate();
@@ -52,7 +52,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         prepara.setString(1, d.getNome());
         prepara.setString(2, d.getDataNascimento());
         prepara.setObject(3, d.getTipo());
-        prepara.setInt(4, d.getIdPessoa());
+        prepara.setInt(4, d.getId());
         
         
         prepara.executeUpdate();
@@ -66,7 +66,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
                 + "WHERE id_dependente = ?;";
         PreparedStatement prepara  = c.prepareStatement(comando);
         
-        prepara.setInt(1, d.getIdPessoa());
+        prepara.setInt(1, d.getId());
         
         prepara.executeUpdate();
     }

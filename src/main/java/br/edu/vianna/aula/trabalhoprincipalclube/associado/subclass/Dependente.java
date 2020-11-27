@@ -17,10 +17,12 @@ public class Dependente extends Pessoa{
     public Dependente() {
     }
 
-    public Dependente(Enum tipo, String nome, String dataNascimento) {
-        super(nome, dataNascimento);
+    public Dependente(Enum tipo, int id, String nome, String dataNascimento) {
+        super(id, nome, dataNascimento);
         this.tipo = tipo;
     }
+
+ 
 
     public Enum getTipo() {
         return tipo;

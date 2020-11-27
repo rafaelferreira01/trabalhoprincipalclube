@@ -8,6 +8,7 @@ package br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.ConnectionClube;
+import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
     public void inserir(Associado a) throws ClassNotFoundException, SQLException {
          Connection c = ConnectionClube.getConnection();
         
-        String comando = "INSERT INTO usuario (nome, data_nasc, cpf,rg,telefone) "
+        String comando = "INSERT INTO associado (nome, data_nasc, cpf, rg, telefone) "
                 + "VALUES (?,?,?,?,?);";
         
         PreparedStatement prepara  = c.prepareStatement(comando);
@@ -46,9 +47,9 @@ import java.util.ArrayList;
        Connection c = ConnectionClube.getConnection();
         
         String comando = "UPDATE associado SET "
-                + "nome = ?, data_nasc = ?, cpf = ?, rg = ?, telefone = ?"
+                + "nome = ?, data_nasc = ?, cpf = ?, rg = ?, telefone = ? "
                 + "WHERE id_associado = ?;";
-        
+        System.out.println("aaa");
         PreparedStatement prepara  = c.prepareStatement(comando);
         
         prepara.setString(1, a.getNome());
@@ -56,7 +57,7 @@ import java.util.ArrayList;
         prepara.setString(3, a.getCpf());
         prepara.setString(4, a.getRg());
         prepara.setString(5, a.getTelefone());
-        prepara.setInt(6, a.getIdPessoa());
+        prepara.setInt(6, a.getId());
         
         
         prepara.executeUpdate();
@@ -69,7 +70,7 @@ import java.util.ArrayList;
         String comando = "DELETE FROM associado "
                 + "WHERE id_associado = ?;";
         PreparedStatement prepara  = c.prepareStatement(comando);
-        prepara.setInt(1, a.getIdPessoa());
+        prepara.setInt(1, a.getId());
         prepara.executeUpdate();
     }
 
@@ -86,10 +87,10 @@ import java.util.ArrayList;
         ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
         
         while(rs.next()) {//usando construtor sem Banco
-            associado = new Associado (rs.getString("cpf"), rs.getString("rg"), 
-                    rs.getString("telefone"), rs.getString("nome"),rs.getString("data_nasc"));
+            associado = new Associado(rs.getString("cpf"), rs.getString("rg"), 
+                    rs.getString("telefone"), rs.getInt("id_associado"),  rs.getString("nome"),rs.getString("data_nasc"));
             
-            associado.setMeusDependentes(new DAODependente().getDependenteAssociado(rs.getInt("id_associado")));
+            //associado.setMeusDependentes(new DAODependente().getDependenteAssociado(rs.getInt("id_associado")));
         }
         return associado;  
         
@@ -105,9 +106,9 @@ import java.util.ArrayList;
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {//usando construtor sem Banco
-            ArrayList<Associado> listaAssociado = new ArrayList<>();
-            Associado associado = new Associado (rs.getString("cpf"), rs.getString("rg"), 
-                    rs.getString("telefone"), rs.getString("nome"),rs.getString("data_nasc"));
+//            ArrayList<Associado> listaAssociado = new ArrayList<>();
+            Associado associado = new Associado(rs.getString("cpf"), rs.getString("rg"), 
+                    rs.getString("telefone"), rs.getInt("id_associado"),  rs.getString("nome"),rs.getString("data_nasc"));
             lista.add(associado);
         }
         return lista;    

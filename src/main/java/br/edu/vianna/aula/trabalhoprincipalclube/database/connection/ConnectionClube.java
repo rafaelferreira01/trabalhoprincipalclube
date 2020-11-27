@@ -31,7 +31,7 @@ public class ConnectionClube {//padrao singleton
             //driver mysql 5 com.mysql.jdbc.Driver
             //driver maria org.mariadb.jdbc.Driver ou com.mysql.jdbc.Driver
                     
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/abrigopet", "root", "belezinha");//conecta local
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/clube_jf", "root", "belezinha");//conecta local
 //            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/abrigopet", "root", "belezinha");//conecta online
         }
         
@@ -42,24 +42,24 @@ public class ConnectionClube {//padrao singleton
     //provavelmente vai ser apagado depois
     public static void main(String[] args) {
       
-//        Associado usu = new Associado();
+        Associado usu = new Associado("1111", "1111", "1111", 0, "1111", "1111");
 //        Animal usa = new Gato(ECatRaca.PERSA, 0, "Malaquias", EAnimalSexo.F, "2002", false, false);
-//        try {
+        try {
 //            
 //            //----testes DAO
 //            new DAOAssociado().buscarPorId(usu);
 //            new DAOAnimal().inserirAdocao(usa);
-//            new DAOAdotante().inserir(usu);
+            new DAOAssociado().inserir(usu);
 //            new DAOAnimal().inserir(usa);
 //            new DAORecurso().alterar(usu);
 //            new DAOAdotante().inserir(usu);
 //            new DAOUsuario().buscarPorId(7);
 //            
-//        } catch (ClassNotFoundException ex) {
-//            System.out.println("Erro no Main");
-//        } catch (SQLException ex) {
-//            System.out.println("Erro geral!");
-//        }
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Erro no Main");
+        } catch (SQLException ex) {
+            System.out.println("Erro geral!");
+        }
 
 
 

@@ -23,25 +23,25 @@ public class Associado extends Pessoa{
       
       public Associado() {
       }
-      
-      public Associado(String cpf, String rg, String telefone,
-              String nome, String dataNascimento) {
-        super(nome, dataNascimento);
+
+    public Associado(String cpf, String rg, String telefone, int id, String nome, String dataNascimento) {
+        super(id, nome, dataNascimento);
         this.cpf = cpf;
         this.rg = rg;
         this.telefone = telefone;
         meusDependentes = new ArrayList<>();
     }
-      
-      public Associado(String cpf, String rg, String telefone, Banco banco,
-              String nome, String dataNascimento) {
-        super(nome, dataNascimento);
+
+    public Associado(String cpf, String rg, String telefone, Banco banco, 
+            int id, String nome, String dataNascimento) {
+        super(id, nome, dataNascimento);
         this.cpf = cpf;
         this.rg = rg;
         this.telefone = telefone;
         this.banco = banco;
         meusDependentes = new ArrayList<>();
     }
+      
 
     public String getCpf() {
         return cpf;

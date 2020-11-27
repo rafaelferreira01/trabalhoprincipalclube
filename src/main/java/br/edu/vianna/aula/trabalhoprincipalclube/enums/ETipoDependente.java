@@ -10,7 +10,7 @@ package br.edu.vianna.aula.trabalhoprincipalclube.enums;
  * @author Leonardo
  */
 public enum ETipoDependente {
-        Conjugue(1, "1 - Esposa(o)"),
+        Conjuge(1, "1 - Esposa(o)"),
 	Filho(2, "2 - Filho(a)");
         
         private int codigo;

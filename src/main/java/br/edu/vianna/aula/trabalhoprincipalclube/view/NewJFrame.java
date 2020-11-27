@@ -5,6 +5,17 @@
  */
 package br.edu.vianna.aula.trabalhoprincipalclube.view;
 
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOAssociado;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAODependente;
+import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroAssociados;
+import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroDependentes;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author suporte
@@ -505,12 +516,40 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAssociadoActionPerformed
+        try{
         jpPrincipal.removeAll();
         jpPrincipal.add(jpAssociado);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
+        
+        //----------------------
+            
+            //-------------BUSCA INICIO-----------
+            ArrayList<Associado> lista = new DAOAssociado().buscarTodos();
+            
+            carregaGridAssociado(lista);          
+            
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        } 
     }//GEN-LAST:event_jbAssociadoActionPerformed
 
+    public void carregaGridAssociado(ArrayList<Associado> lista) {
+        String[] nomeColunas = {"ID", "Nome", "Nascimento", "CPF", "RG", "Telefone"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Associado u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getDataNascimento(), u.getCpf(),
+                u.getRg(), u.getTelefone()};
+            dtm.addRow(values);
+        }
+        
+        jtAssociado.setModel(dtm);
+    }
+//-------------BUSCA FIM-----------
+    
     private void jbHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHome1ActionPerformed
         jpPrincipal.removeAll();
         jpPrincipal.add(jpBar);
@@ -563,28 +602,116 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbRefreshUsuarioActionPerformed
 
     private void jbAddAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoActionPerformed
-        // TODO add your handling code here:
+        try {
+            new JDCadastroAssociados(null,true).show();
+            carregaGridAssociado(new DAOAssociado().buscarTodos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
     }//GEN-LAST:event_jbAddAssociadoActionPerformed
 
     private void jbEditAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAssociadoActionPerformed
-        // TODO add your handling code here:
+        //ALTERAR
+        int linha = jtAssociado.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtAssociado.getValueAt(linha, 0);
+
+            try {
+                Associado usu = new DAOAssociado().buscarPorId(id);
+                
+                JDCadastroAssociados jdc = new JDCadastroAssociados(null,true);
+                
+                ArrayList<Associado> lista = new DAOAssociado().buscarTodos();
+                
+                jdc.alterarRegisto(usu);
+                jdc.show();
+                
+                carregaGridAssociado(new DAOAssociado().buscarTodos());
+                
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+            }
+        }
     }//GEN-LAST:event_jbEditAssociadoActionPerformed
 
     private void jbRemoveAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAssociadoActionPerformed
-        // TODO add your handling code here:
+        //REMOVER
+        int linha = jtAssociado.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtAssociado.getValueAt(linha, 0);
+            if(JOptionPane.showConfirmDialog(null, "Deseja excluir a entrada selecionada?") == JOptionPane.YES_OPTION){
+                
+                try {
+                    
+                    Associado u = new Associado();
+                    u.setId(id);
+                    new DAOAssociado().apagar(u);
+                    carregaGridAssociado(new DAOAssociado().buscarTodos());
+                    JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
+                    
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+                }
+            }
+        }
     }//GEN-LAST:event_jbRemoveAssociadoActionPerformed
 
     private void jbRefreshAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAssociadoActionPerformed
-        // TODO add your handling code here:
+        //ATUALIZAR
+        try {
+            carregaGridAssociado(new DAOAssociado().buscarTodos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
     }//GEN-LAST:event_jbRefreshAssociadoActionPerformed
 
     private void jbAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAssociadoMaisActionPerformed
+        try{
         jpPrincipal.removeAll();
         jpPrincipal.add(jpAssociadoMais);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
+        
+        //----------------------
+            
+            //-------------BUSCA INICIO-----------
+            ArrayList<Dependente> lista = new DAODependente().buscarTodos();
+            
+            carregaGridDependentes(lista);          
+            
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        } 
     }//GEN-LAST:event_jbAssociadoMaisActionPerformed
-
+    public void carregaGridDependentes(ArrayList<Dependente> lista) {
+        String[] nomeColunas = {"ID", "Nome", "Nascimento", "Tipo"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Dependente u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getDataNascimento(), u.getTipo()};
+            dtm.addRow(values);
+        }
+        
+        jtAssociado.setModel(dtm);
+    }
+//-------------BUSCA FIM-----------
+    
     private void jbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbUsuarioActionPerformed
         jpPrincipal.removeAll();
         jpPrincipal.add(jpUsuario);
@@ -593,19 +720,81 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbUsuarioActionPerformed
 
     private void jbAddAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoMaisActionPerformed
-        // TODO add your handling code here:
+        try {
+            new JDCadastroDependentes(null,true).show();
+            carregaGridDependentes(new DAODependente().buscarTodos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
     }//GEN-LAST:event_jbAddAssociadoMaisActionPerformed
 
     private void jbEditAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAssociadoMaisActionPerformed
-        // TODO add your handling code here:
+        //ALTERAR
+        int linha = jtDependentes.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtDependentes.getValueAt(linha, 0);
+
+            try {
+                Dependente usu = new DAODependente().buscarPorId(id);
+                
+                JDCadastroDependentes jdc = new JDCadastroDependentes(null,true);
+                
+                ArrayList<Dependente> lista = new DAODependente().buscarTodos();
+                
+                jdc.alterarRegisto(usu);
+                jdc.show();
+                
+                carregaGridDependentes(new DAODependente().buscarTodos());
+                
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+            }
+        }
     }//GEN-LAST:event_jbEditAssociadoMaisActionPerformed
 
     private void jbRemoveAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAssociadoMaisActionPerformed
-        // TODO add your handling code here:
+        //REMOVER
+        int linha = jtDependentes.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtDependentes.getValueAt(linha, 0);
+            if(JOptionPane.showConfirmDialog(null, "Deseja excluir a entrada selecionada?") == JOptionPane.YES_OPTION){
+                
+                try {
+                    
+                    Dependente u = new Dependente();
+                    u.setId(id);
+                    new DAODependente().apagar(u);
+                    carregaGridDependentes(new DAODependente().buscarTodos());
+                    JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
+                    
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+                }
+            }
+        }
     }//GEN-LAST:event_jbRemoveAssociadoMaisActionPerformed
 
     private void jbRefreshAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAssociadoMaisActionPerformed
-        // TODO add your handling code here:
+        //ATUALIZAR
+        try {
+            carregaGridDependentes(new DAODependente().buscarTodos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
     }//GEN-LAST:event_jbRefreshAssociadoMaisActionPerformed
 
     private void jbSairAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairAnimalActionPerformed
