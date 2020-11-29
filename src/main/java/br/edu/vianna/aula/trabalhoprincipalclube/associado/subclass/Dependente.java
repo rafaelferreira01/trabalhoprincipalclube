@@ -13,6 +13,7 @@ import br.edu.vianna.aula.trabalhoprincipalclube.associado.superclass.Pessoa;
  */
 public class Dependente extends Pessoa{
     private Enum tipo;
+    private Associado associado;
 
     public Dependente() {
     }
@@ -22,7 +23,11 @@ public class Dependente extends Pessoa{
         this.tipo = tipo;
     }
 
- 
+    public Dependente(Enum tipo, Associado associado, int id, String nome, String dataNascimento) {
+        super(id, nome, dataNascimento);
+        this.tipo = tipo;
+        this.associado = associado;
+    }
 
     public Enum getTipo() {
         return tipo;

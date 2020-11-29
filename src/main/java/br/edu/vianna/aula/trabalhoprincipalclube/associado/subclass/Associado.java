@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Leonardo
  */
 public class Associado extends Pessoa{
-    
+      
       private String cpf;
       private String rg;
       private String telefone;

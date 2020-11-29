@@ -5,6 +5,7 @@
  */
 package br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao;
 
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.ConnectionClube;
 import br.edu.vianna.aula.trabalhoprincipalclube.enums.ETipoDependente;
@@ -21,18 +22,36 @@ import java.util.ArrayList;
  */
 public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
 
+    public void inserirComAssociado(Dependente d, Associado ass) throws ClassNotFoundException, SQLException {
+         Connection c = ConnectionClube.getConnection();
+        
+        String comando = "INSERT INTO dependente (nome, data_nasc, tipo,id_dependente, id_associado) "
+                + "VALUES (?,?,?,?,?);";
+       
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        
+        prepara.setString(1, d.getNome());
+        prepara.setString(2, d.getDataNascimento());
+        prepara.setString(3, d.getTipo().toString());
+        prepara.setInt(4, d.getId());
+        prepara.setInt(5, ass.getId());
+        
+
+        prepara.executeUpdate();
+    }
+    
     @Override
     public void inserir(Dependente d) throws ClassNotFoundException, SQLException {
          Connection c = ConnectionClube.getConnection();
         
-        String comando = "INSERT INTO dependente (nome, data_nasc, tipo,id_dependente) "
+        String comando = "INSERT INTO dependente (nome, data_nasc, tipo, id_dependente) "
                 + "VALUES (?,?,?,?);";
        
         PreparedStatement prepara  = c.prepareStatement(comando);
         
         prepara.setString(1, d.getNome());
         prepara.setString(2, d.getDataNascimento());
-        prepara.setObject(3, d.getTipo());
+        prepara.setString(3, d.getTipo().toString());
         prepara.setInt(4, d.getId());
         
 
@@ -44,14 +63,14 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         Connection c = ConnectionClube.getConnection();
         
         String comando = "UPDATE dependente SET "
-                + "nome = ?, data_nasc = ?, tipo = ?, id_dependente = ?"
+                + "nome = ?, data_nasc = ?, tipo = ? "
                 + "WHERE id_dependente = ?;";
         
         PreparedStatement prepara  = c.prepareStatement(comando);
         
         prepara.setString(1, d.getNome());
         prepara.setString(2, d.getDataNascimento());
-        prepara.setObject(3, d.getTipo());
+        prepara.setString(3, d.getTipo().toString());
         prepara.setInt(4, d.getId());
         
         
@@ -85,7 +104,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
         
         while(rs.next()) {
-             dependente = new Dependente (ETipoDependente.valueOf(rs.getString("tipo")), 
+             dependente = new Dependente (ETipoDependente.valueOf(rs.getString("tipo")), rs.getInt("id_dependente"),  
                     rs.getString("nome"), rs.getString("data_nasc"));
         }
       
@@ -103,7 +122,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {
-            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), 
+            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), rs.getInt("id_dependente"),  
                     rs.getString("nome"), rs.getString("data_nasc"));
             
             lista.add(dependente);
@@ -118,9 +137,10 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
 
     public ArrayList<Dependente> getDependenteAssociado(Integer i) throws ClassNotFoundException, SQLException {
         Connection c = ConnectionClube.getConnection();
-        String comando = "SELECT * FROM dependente d "
-                + "INNER JOIN associado a ON (d.id_associado = a.id_associado) "
-                + "WHERE d.id_associado = ?;";
+
+        String comando = "select id_dependente, d.nome, tipo, d.data_nasc from dependente d "
+                + "inner join associado a on (d.id_associado = a.id_associado) "
+                + "where a.id_associado = ?;";
         PreparedStatement prepara  = c.prepareStatement(comando);
         
         ArrayList<Dependente> lista = new ArrayList<>();
@@ -130,7 +150,7 @@ public class DAODependente implements IDaoGenerics  <Dependente, Integer> {
         ResultSet rs = prepara.executeQuery();
         
         while(rs.next()) {
-            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), 
+            Dependente dependente = new Dependente(ETipoDependente.valueOf(rs.getString("tipo")), rs.getInt("id_dependente"),   
                     rs.getString("nome"), rs.getString("data_nasc"));
             
             lista.add(dependente);

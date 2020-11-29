@@ -90,7 +90,7 @@ import java.util.ArrayList;
             associado = new Associado(rs.getString("cpf"), rs.getString("rg"), 
                     rs.getString("telefone"), rs.getInt("id_associado"),  rs.getString("nome"),rs.getString("data_nasc"));
             
-            //associado.setMeusDependentes(new DAODependente().getDependenteAssociado(rs.getInt("id_associado")));
+            associado.setMeusDependentes(new DAODependente().getDependenteAssociado(rs.getInt("id_associado")));
         }
         return associado;  
         
@@ -109,6 +109,7 @@ import java.util.ArrayList;
 //            ArrayList<Associado> listaAssociado = new ArrayList<>();
             Associado associado = new Associado(rs.getString("cpf"), rs.getString("rg"), 
                     rs.getString("telefone"), rs.getInt("id_associado"),  rs.getString("nome"),rs.getString("data_nasc"));
+            
             lista.add(associado);
         }
         return lista;    

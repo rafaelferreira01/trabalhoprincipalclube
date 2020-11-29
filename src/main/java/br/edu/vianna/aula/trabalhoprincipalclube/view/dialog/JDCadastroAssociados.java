@@ -52,7 +52,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
         jtNome = new javax.swing.JTextField();
         jlNome = new javax.swing.JLabel();
         jlCPF = new javax.swing.JLabel();
-        jbGravarAdotante = new javax.swing.JButton();
+        jbGravarAssociado = new javax.swing.JButton();
         jtCPF = new javax.swing.JTextField();
         jtTelefone = new javax.swing.JTextField();
         jlTelefone = new javax.swing.JLabel();
@@ -74,11 +74,11 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
 
         jlCPF.setText("CPF");
 
-        jbGravarAdotante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-file (2).png"))); // NOI18N
-        jbGravarAdotante.setToolTipText("Salvar");
-        jbGravarAdotante.addActionListener(new java.awt.event.ActionListener() {
+        jbGravarAssociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-file (2).png"))); // NOI18N
+        jbGravarAssociado.setToolTipText("Salvar");
+        jbGravarAssociado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbGravarAdotanteActionPerformed(evt);
+                jbGravarAssociadoActionPerformed(evt);
             }
         });
 
@@ -132,7 +132,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbGravarAdotante)
+                            .addComponent(jbGravarAssociado)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jbSairAdotante))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -182,7 +182,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
                         .addComponent(jlRG)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbGravarAdotante)
+                    .addComponent(jbGravarAssociado)
                     .addComponent(jbSairAdotante)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +215,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_jbSairAdotanteActionPerformed
 
-    private void jbGravarAdotanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGravarAdotanteActionPerformed
+    private void jbGravarAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGravarAssociadoActionPerformed
         //INSERIR
         Associado u = new Associado(jtCPF.getText(), jtRG.getText(), jtTelefone.getText(), 
                 0, jtNome.getText(), jftNasc.getText());
@@ -238,7 +238,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
         }
-    }//GEN-LAST:event_jbGravarAdotanteActionPerformed
+    }//GEN-LAST:event_jbGravarAssociadoActionPerformed
 
     private void jtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTelefoneActionPerformed
         // TODO add your handling code here:
@@ -303,7 +303,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbGravarAdotante;
+    private javax.swing.JButton jbGravarAssociado;
     private javax.swing.JButton jbSairAdotante;
     private javax.swing.JFormattedTextField jftNasc;
     private javax.swing.JLabel jlCPF;

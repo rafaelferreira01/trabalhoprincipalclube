@@ -60,6 +60,17 @@ public class NewJFrame extends javax.swing.JFrame {
         jbRemoveAssociadoMais = new javax.swing.JButton();
         jbRefreshAssociadoMais = new javax.swing.JButton();
         jbSairAnimal = new javax.swing.JButton();
+        jpAssociadoInfo = new javax.swing.JPanel();
+        jlNascEscrever = new javax.swing.JLabel();
+        jlNasc = new javax.swing.JLabel();
+        jlCPFEscrever = new javax.swing.JLabel();
+        jlCPF = new javax.swing.JLabel();
+        jlRGEscrever = new javax.swing.JLabel();
+        jlTelefoneEscrever = new javax.swing.JLabel();
+        jlTelefone = new javax.swing.JLabel();
+        jlRG1 = new javax.swing.JLabel();
+        jlIDEscrever = new javax.swing.JLabel();
+        jlNomeEscrever = new javax.swing.JLabel();
         jpBar = new javax.swing.JPanel();
         jspBar = new javax.swing.JScrollPane();
         jtBar = new javax.swing.JTable();
@@ -240,6 +251,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpAssociadoMais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
 
+        jspAssociadoMais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dependentes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
         jtDependentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -293,12 +306,104 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        jpAssociadoInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jlNascEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlNascEscrever.setText("087.466.866.22");
+
+        jlNasc.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlNasc.setText("Nasc. ");
+
+        jlCPFEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlCPFEscrever.setText("087.466.866.22");
+
+        jlCPF.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlCPF.setText("CPF");
+
+        jlRGEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlRGEscrever.setText("087.466.866.22");
+
+        jlTelefoneEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlTelefoneEscrever.setText("087.466.866.22");
+
+        jlTelefone.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlTelefone.setText("Telefone");
+
+        jlRG1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlRG1.setText("RG");
+
+        javax.swing.GroupLayout jpAssociadoInfoLayout = new javax.swing.GroupLayout(jpAssociadoInfo);
+        jpAssociadoInfo.setLayout(jpAssociadoInfoLayout);
+        jpAssociadoInfoLayout.setHorizontalGroup(
+            jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                        .addComponent(jlCPF)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlCPFEscrever)
+                        .addGap(23, 23, 23))
+                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                        .addComponent(jlNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlNascEscrever)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                        .addComponent(jlTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlTelefoneEscrever))
+                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                        .addComponent(jlRG1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlRGEscrever)))
+                .addGap(14, 14, 14))
+        );
+        jpAssociadoInfoLayout.setVerticalGroup(
+            jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlRGEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlRG1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlNascEscrever)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCPFEscrever)
+                    .addComponent(jlTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlTelefoneEscrever))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jlIDEscrever.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlIDEscrever.setText("C00");
+
+        jlNomeEscrever.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlNomeEscrever.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlNomeEscrever.setText("RAFAEL");
+
         javax.swing.GroupLayout jpAssociadoMaisLayout = new javax.swing.GroupLayout(jpAssociadoMais);
         jpAssociadoMais.setLayout(jpAssociadoMaisLayout);
         jpAssociadoMaisLayout.setHorizontalGroup(
             jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
-                .addComponent(jspAssociadoMais, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jlIDEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlNomeEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114)
+                .addComponent(jbSairAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpAssociadoInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jspAssociadoMais)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbAddAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -306,15 +411,20 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(jbRefreshAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbEditAssociadoMais))
                 .addGap(8, 8, 8))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbSairAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jpAssociadoMaisLayout.setVerticalGroup(
             jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
-                .addComponent(jbSairAnimal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbSairAnimal)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlIDEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlNomeEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpAssociadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
                         .addComponent(jbAddAssociadoMais)
@@ -680,18 +790,59 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbRefreshAssociadoActionPerformed
 
     private void jbAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAssociadoMaisActionPerformed
+        
+        //QUNDO CLICAR NO BOTAO PRA IR PRO MAIS
         try{
-        jpPrincipal.removeAll();
-        jpPrincipal.add(jpAssociadoMais);
-        jpPrincipal.repaint();
-        jpPrincipal.revalidate();
+//        jpPrincipal.removeAll();
+//        jpPrincipal.add(jpAssociadoMais);
+//        jpPrincipal.repaint();
+//        jpPrincipal.revalidate();
         
         //----------------------
+        //TESTE INICIO
+        int linha = jtAssociado.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+            
+        }else{
+            jpPrincipal.removeAll();
+            jpPrincipal.add(jpAssociadoMais);
+            jpPrincipal.repaint();
+            jpPrincipal.revalidate();
+        
+            int id = (int) jtAssociado.getValueAt(linha, 0);
+                
+                Associado ass = new DAOAssociado().buscarPorId(id);
+                
+                jlIDEscrever.setText(String.valueOf(ass.getId()));
+                jlCPFEscrever.setText(String.valueOf(ass.getCpf()));
+                jlRGEscrever.setText(String.valueOf(ass.getRg()));
+                jlNomeEscrever.setText(String.valueOf(ass.getNome()));
+                jlTelefoneEscrever.setText(String.valueOf(ass.getTelefone()));
+                jlNascEscrever.setText(String.valueOf(ass.getDataNascimento()));
+                
+//                ArrayList<Usuario> lista = new DAOUsuario().buscarTodos();
+//            
+//                carregaGridUsuarios(lista);   
+            
+//                JDCadastroAssociados jdc = new JDCadastroAssociados(null,true);
+//                
+//                
+                
+//                jdc.alterarRegisto(usu);
+//                jdc.show();
+//                
+            
+        
+        //TESTE FIM
             
             //-------------BUSCA INICIO-----------
-            ArrayList<Dependente> lista = new DAODependente().buscarTodos();
+//            ArrayList<Dependente> lista = new DAODependente().buscarTodos();
+              ArrayList<Dependente> lista = new DAODependente().getDependenteAssociado(ass.getId());
             
-            carregaGridDependentes(lista);          
+            carregaGridDependentes(lista);  
+            }
             
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Driver não encontrado.");
@@ -699,6 +850,8 @@ public class NewJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
         } 
     }//GEN-LAST:event_jbAssociadoMaisActionPerformed
+    
+    
     public void carregaGridDependentes(ArrayList<Dependente> lista) {
         String[] nomeColunas = {"ID", "Nome", "Nascimento", "Tipo"};
         DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
@@ -708,9 +861,29 @@ public class NewJFrame extends javax.swing.JFrame {
             dtm.addRow(values);
         }
         
-        jtAssociado.setModel(dtm);
+        jtDependentes.setModel(dtm);
     }
 //-------------BUSCA FIM-----------
+    
+    public void carregaGridDependenteEspecifico() throws ClassNotFoundException, SQLException {
+        int linha = jtAssociado.getSelectedRow();
+        int idAss = (int) jtAssociado.getValueAt(linha, 0);
+        
+        Associado ass = new DAOAssociado().buscarPorId(idAss);
+        
+        ArrayList<Dependente> lista = new DAODependente().getDependenteAssociado(ass.getId());
+
+        String[] nomeColunas = {"ID", "Nome", "Nascimento", "Tipo"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Dependente u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getDataNascimento(), u.getTipo()};
+            dtm.addRow(values);
+        }
+        
+        jtDependentes.setModel(dtm);
+    }
+    
     
     private void jbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbUsuarioActionPerformed
         jpPrincipal.removeAll();
@@ -721,8 +894,17 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbAddAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoMaisActionPerformed
         try {
-            new JDCadastroDependentes(null,true).show();
-            carregaGridDependentes(new DAODependente().buscarTodos());
+            int linha = jtAssociado.getSelectedRow();
+            int id = (int) jtAssociado.getValueAt(linha, 0);
+            Associado ass = new DAOAssociado().buscarPorId(id);
+            
+            new JDCadastroDependentes(null, true, ass).show();
+            
+//            new JDCadastroDependentes(null,true).show();
+//            ArrayList<Dependente> lista = new DAODependente().getDependenteAssociado(ass.getId());
+            
+            carregaGridDependenteEspecifico();
+            
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Driver não encontrado.");
         } catch (SQLException ex) {
@@ -732,24 +914,25 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbEditAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAssociadoMaisActionPerformed
         //ALTERAR
-        int linha = jtDependentes.getSelectedRow();
+        int row = jtDependentes.getSelectedRow();
                 
-        if(linha < 0){
+        if(row < 0){
             JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
         }else{
-            int id = (int) jtDependentes.getValueAt(linha, 0);
+            int id = (int) jtDependentes.getValueAt(row, 0);
 
             try {
+                
                 Dependente usu = new DAODependente().buscarPorId(id);
                 
-                JDCadastroDependentes jdc = new JDCadastroDependentes(null,true);
+                JDCadastroDependentes jdc = new JDCadastroDependentes(null, true);
                 
-                ArrayList<Dependente> lista = new DAODependente().buscarTodos();
+//                ArrayList<Associado> lista = new DAOAssociado().buscarTodos();
                 
                 jdc.alterarRegisto(usu);
                 jdc.show();
                 
-                carregaGridDependentes(new DAODependente().buscarTodos());
+                carregaGridDependenteEspecifico();
                 
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Driver não encontrado.");
@@ -761,12 +944,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jbRemoveAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAssociadoMaisActionPerformed
         //REMOVER
-        int linha = jtDependentes.getSelectedRow();
+        int row = jtDependentes.getSelectedRow();
                 
-        if(linha < 0){
+        if(row < 0){
             JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
         }else{
-            int id = (int) jtDependentes.getValueAt(linha, 0);
+            int id = (int) jtDependentes.getValueAt(row, 0);
             if(JOptionPane.showConfirmDialog(null, "Deseja excluir a entrada selecionada?") == JOptionPane.YES_OPTION){
                 
                 try {
@@ -774,7 +957,15 @@ public class NewJFrame extends javax.swing.JFrame {
                     Dependente u = new Dependente();
                     u.setId(id);
                     new DAODependente().apagar(u);
-                    carregaGridDependentes(new DAODependente().buscarTodos());
+                    
+                    carregaGridDependenteEspecifico();
+                    
+//                    ////////////
+//                    int linha = jtAssociado.getSelectedRow();
+//                    int idAss = (int) jtAssociado.getValueAt(linha, 0);
+//                    Associado ass = new DAOAssociado().buscarPorId(idAss);
+//                    ArrayList<Dependente> lista = new DAODependente().getDependenteAssociado(ass.getId());
+//                    ////////////
                     JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
                     
                 } catch (ClassNotFoundException ex) {
@@ -789,7 +980,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jbRefreshAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAssociadoMaisActionPerformed
         //ATUALIZAR
         try {
-            carregaGridDependentes(new DAODependente().buscarTodos());
+//            int linha = jtAssociado.getSelectedRow();
+//            int id = (int) jtAssociado.getValueAt(linha, 0);
+//            Associado ass = new DAOAssociado().buscarPorId(id);
+//            ArrayList<Dependente> lista = new DAODependente().getDependenteAssociado(ass.getId());
+
+            carregaGridDependenteEspecifico();
+            
+//            carregaGridDependentes(lista); 
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Driver não encontrado.");
         } catch (SQLException ex) {
@@ -862,7 +1060,18 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jbRemoveUsuario;
     private javax.swing.JButton jbSairAnimal;
     private javax.swing.JButton jbUsuario;
+    private javax.swing.JLabel jlCPF;
+    private javax.swing.JLabel jlCPFEscrever;
+    private javax.swing.JLabel jlIDEscrever;
+    private javax.swing.JLabel jlNasc;
+    private javax.swing.JLabel jlNascEscrever;
+    private javax.swing.JLabel jlNomeEscrever;
+    private javax.swing.JLabel jlRG1;
+    private javax.swing.JLabel jlRGEscrever;
+    private javax.swing.JLabel jlTelefone;
+    private javax.swing.JLabel jlTelefoneEscrever;
     private javax.swing.JPanel jpAssociado;
+    private javax.swing.JPanel jpAssociadoInfo;
     private javax.swing.JPanel jpAssociadoMais;
     private javax.swing.JPanel jpBar;
     private javax.swing.JPanel jpMenu;

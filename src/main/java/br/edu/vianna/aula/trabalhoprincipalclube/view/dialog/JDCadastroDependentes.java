@@ -5,10 +5,12 @@
  */
 package br.edu.vianna.aula.trabalhoprincipalclube.view.dialog;
 
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAODependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.enums.ETipoDependente;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +18,23 @@ import javax.swing.JOptionPane;
  * @author suporte
  */
 public class JDCadastroDependentes extends javax.swing.JDialog {
+
+    Associado associado = new Associado();
+
+    public JDCadastroDependentes(java.awt.Frame parent, boolean modal, Associado associado) {
+        super(parent, modal);
+        initComponents();
+        this.associado = associado;
+        jtID.setText("");//ao abrir jdialog seta vazio no atributo que representa a chave primaria, 
+            //isso foi feito para permitir a checagem se é um inser ou um update na hora de clicar no botao salvar
+    }
+    
+    public JDCadastroDependentes(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        jtID.setText("");//ao abrir jdialog seta vazio no atributo que representa a chave primaria, 
+            //isso foi feito para permitir a checagem se é um inser ou um update na hora de clicar no botao salvar
+    }
     
     public String radioBoxDependenteVerificar(String sexo){
         if(rbFilho.isSelected()) {
@@ -23,16 +42,6 @@ public class JDCadastroDependentes extends javax.swing.JDialog {
         } else {
              return ETipoDependente.Conjuge.toString();
         }
-    }
-    
-    /**
-     * Creates new form JDAnimais
-     */
-    public JDCadastroDependentes(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
-        jtID.setText("");//ao abrir jdialog seta vazio no atributo que representa a chave primaria, 
-            //isso foi feito para permitir a checagem se é um inser ou um update na hora de clicar no botao salvar
     }
     
     public void alterarRegisto(Dependente u) {
@@ -91,7 +100,7 @@ public class JDCadastroDependentes extends javax.swing.JDialog {
         rbFilho.setName("F"); // NOI18N
 
         bgSexo.add(rbConjuge);
-        rbConjuge.setText("Ccônjuge");
+        rbConjuge.setText("Cônjuge");
         rbConjuge.setName("M"); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -227,7 +236,7 @@ public class JDCadastroDependentes extends javax.swing.JDialog {
         String tipo = "";
         tipo = radioBoxDependenteVerificar(tipo);
         
-        Dependente u = new Dependente(ETipoDependente.valueOf(tipo), 0, jtNome.getText(), jftData.getText());
+        Dependente u = new Dependente(ETipoDependente.valueOf(tipo), associado , 0, jtNome.getText(), jftData.getText());
         try {
             if(!jtID.getText().isEmpty()){//se o campo da chave primeira desse objeto estiver 
                 //vazio entao vai ser um insert, caso contrario vai ser um update
@@ -236,7 +245,7 @@ public class JDCadastroDependentes extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Registro alterado com sucesso.");
 
             } else {
-                new DAODependente().inserir(u);
+                new DAODependente().inserirComAssociado(u,associado);
                 JOptionPane.showMessageDialog(null, "Registro inserido com sucesso.");
             }
             
