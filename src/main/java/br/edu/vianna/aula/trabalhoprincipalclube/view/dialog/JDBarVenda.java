@@ -7,9 +7,12 @@ package br.edu.vianna.aula.trabalhoprincipalclube.view.dialog;
 
 
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOAssociado;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOContaBar;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOEmpresa;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOProduto;
 import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.Produto;
+import br.edu.vianna.aula.trabalhoprincipalclube.operacoes.Empresa;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,6 +43,10 @@ public class JDBarVenda extends javax.swing.JDialog {
         initComponents();
     }
     
+//    Empresa empresa = new Empresa();
+//    
+//    Empresa emp = new DAOEmpresa().buscaEmpresaSelecionada(empresa);
+    
     Associado associado = new Associado();
 
     public JDBarVenda(java.awt.Frame parent, boolean modal, Associado associado) {
@@ -49,6 +56,7 @@ public class JDBarVenda extends javax.swing.JDialog {
         jlID.setText(String.valueOf(associado.getId()));
         jlNome.setText(String.valueOf(associado.getNome()));
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -98,7 +106,7 @@ public class JDBarVenda extends javax.swing.JDialog {
             }
         });
 
-        Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/money.png"))); // NOI18N
+        Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/vegan-food (1)32.png"))); // NOI18N
         Confirmar.setToolTipText("Adicionar");
         Confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,18 +205,15 @@ public class JDBarVenda extends javax.swing.JDialog {
                     .addComponent(jlNomeDep4)
                     .addComponent(jlValorLanche)
                     .addComponent(jlValorAlmoco))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbSairRecurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Confirmar)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlTotal)
-                            .addComponent(jlabelRS))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlTotal)
+                        .addComponent(jlabelRS)))
                 .addGap(8, 8, 8))
         );
 
@@ -239,7 +244,11 @@ public class JDBarVenda extends javax.swing.JDialog {
 
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
         try {
-            new DAOContaBar().realizarVenda(associado, calcTotal());
+            
+            Empresa emp = new DAOEmpresa().buscaEmpresaSelecionada();
+            int id = emp.getId();
+            new DAOContaBar().realizarVendaEmpresa(associado, calcTotal(), id);
+
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Driver não encontrado.");
         } catch (SQLException ex) {

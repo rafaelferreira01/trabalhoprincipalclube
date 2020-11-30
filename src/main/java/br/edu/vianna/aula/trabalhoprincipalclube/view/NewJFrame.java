@@ -10,6 +10,10 @@ import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOAssociado;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOContaBar;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAODependente;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOEmpresa;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOMensalidade;
+import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.Mensalidade;
+import br.edu.vianna.aula.trabalhoprincipalclube.operacoes.Empresa;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDBarVenda;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroAssociados;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroDependentes;
@@ -31,6 +35,7 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        Empresa e = new Empresa(1, "JUIZ DE FORA");
     }
 
     /**
@@ -48,6 +53,15 @@ public class NewJFrame extends javax.swing.JFrame {
         jbAssociado = new javax.swing.JButton();
         jbUsuario = new javax.swing.JButton();
         jpPrincipal = new javax.swing.JPanel();
+        jpHome = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jpRegistro = new javax.swing.JPanel();
+        jsNoClube = new javax.swing.JScrollPane();
+        jtNoClube = new javax.swing.JTable();
+        jbEntrar = new javax.swing.JButton();
+        jsFora = new javax.swing.JScrollPane();
+        jtFora = new javax.swing.JTable();
+        jbSair = new javax.swing.JButton();
         jpAssociado = new javax.swing.JPanel();
         jspAssociado = new javax.swing.JScrollPane();
         jtAssociado = new javax.swing.JTable();
@@ -75,6 +89,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jlRG1 = new javax.swing.JLabel();
         jlIDEscrever = new javax.swing.JLabel();
         jlNomeEscrever = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jpBar = new javax.swing.JPanel();
         jspBarAssociado = new javax.swing.JScrollPane();
         jtBarAssociado = new javax.swing.JTable();
@@ -86,6 +102,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jbEditUsuario = new javax.swing.JButton();
         jbRemoveUsuario = new javax.swing.JButton();
         jbRefreshUsuario = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -147,7 +167,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpMenuLayout.setVerticalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(178, 178, 178)
                 .addComponent(jbHome1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbBar)
@@ -159,6 +179,103 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         jpPrincipal.setLayout(new java.awt.CardLayout());
+
+        jpHome.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Abrigo de Animais do Zezinho"));
+
+        jLabel1.setText("Bem Vindo!");
+
+        javax.swing.GroupLayout jpHomeLayout = new javax.swing.GroupLayout(jpHome);
+        jpHome.setLayout(jpHomeLayout);
+        jpHomeLayout.setHorizontalGroup(
+            jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpHomeLayout.createSequentialGroup()
+                .addGap(366, 366, 366)
+                .addComponent(jLabel1)
+                .addContainerGap(372, Short.MAX_VALUE))
+        );
+        jpHomeLayout.setVerticalGroup(
+            jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpHomeLayout.createSequentialGroup()
+                .addGap(287, 287, 287)
+                .addComponent(jLabel1)
+                .addContainerGap(323, Short.MAX_VALUE))
+        );
+
+        jpPrincipal.add(jpHome, "card3");
+
+        jpRegistro.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+
+        jtNoClube.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jsNoClube.setViewportView(jtNoClube);
+
+        jbEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/downloading (3).png"))); // NOI18N
+        jbEntrar.setToolTipText("Adicionar");
+        jbEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEntrarActionPerformed(evt);
+            }
+        });
+
+        jtFora.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jsFora.setViewportView(jtFora);
+
+        jbSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/upload.png"))); // NOI18N
+        jbSair.setToolTipText("Adicionar");
+        jbSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpRegistroLayout = new javax.swing.GroupLayout(jpRegistro);
+        jpRegistro.setLayout(jpRegistroLayout);
+        jpRegistroLayout.setHorizontalGroup(
+            jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
+                .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jsFora, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jsNoClube, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbEntrar)
+                    .addComponent(jbSair))
+                .addGap(8, 8, 8))
+        );
+        jpRegistroLayout.setVerticalGroup(
+            jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
+                .addGap(0, 208, Short.MAX_VALUE)
+                .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jsFora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbEntrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbSair)
+                    .addComponent(jsNoClube, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jpPrincipal.add(jpRegistro, "card2");
 
         jpAssociado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
 
@@ -234,7 +351,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoLayout.createSequentialGroup()
                 .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(jpAssociadoLayout.createSequentialGroup()
                         .addComponent(jbAddAssociado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -309,134 +426,165 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpAssociadoInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jlNascEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlNascEscrever.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlNascEscrever.setText("087.466.866.22");
 
-        jlNasc.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlNasc.setText("Nasc. ");
+        jlNasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlNasc.setText("Nasc.: ");
 
-        jlCPFEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlCPFEscrever.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlCPFEscrever.setText("087.466.866.22");
 
-        jlCPF.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlCPF.setText("CPF");
+        jlCPF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlCPF.setText("CPF:");
 
-        jlRGEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlRGEscrever.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlRGEscrever.setText("087.466.866.22");
 
-        jlTelefoneEscrever.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlTelefoneEscrever.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlTelefoneEscrever.setText("087.466.866.22");
 
-        jlTelefone.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlTelefone.setText("Telefone");
+        jlTelefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlTelefone.setText("Telefone:");
 
-        jlRG1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlRG1.setText("RG");
+        jlRG1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlRG1.setText("RG:");
 
         javax.swing.GroupLayout jpAssociadoInfoLayout = new javax.swing.GroupLayout(jpAssociadoInfo);
         jpAssociadoInfo.setLayout(jpAssociadoInfoLayout);
         jpAssociadoInfoLayout.setHorizontalGroup(
             jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
-                        .addComponent(jlCPF)
-                        .addGap(18, 18, 18)
-                        .addComponent(jlCPFEscrever)
-                        .addGap(23, 23, 23))
-                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
-                        .addComponent(jlNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlNascEscrever)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
-                        .addComponent(jlTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlTelefone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jlTelefoneEscrever))
                     .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                        .addComponent(jlNasc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlNascEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
                         .addComponent(jlRG1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jlRGEscrever)))
-                .addGap(14, 14, 14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlRGEscrever))
+                    .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
+                        .addComponent(jlCPF)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlCPFEscrever))))
         );
         jpAssociadoInfoLayout.setVerticalGroup(
             jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jlRGEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlRG1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jlNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlNascEscrever)))
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlNasc)
+                    .addComponent(jlNascEscrever))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlCPFEscrever)
-                    .addComponent(jlTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCPF)
+                    .addComponent(jlCPFEscrever))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlRG1)
+                    .addComponent(jlRGEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpAssociadoInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlTelefone)
                     .addComponent(jlTelefoneEscrever))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jlIDEscrever.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlIDEscrever.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jlIDEscrever.setText("C00");
 
-        jlNomeEscrever.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlNomeEscrever.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlNomeEscrever.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jlNomeEscrever.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlNomeEscrever.setText("RAFAEL");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jpAssociadoMaisLayout = new javax.swing.GroupLayout(jpAssociadoMais);
         jpAssociadoMais.setLayout(jpAssociadoMaisLayout);
         jpAssociadoMaisLayout.setHorizontalGroup(
             jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jlIDEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlNomeEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
-                .addComponent(jbSairAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpAssociadoInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
+                        .addComponent(jspAssociadoMais)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbAddAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbRemoveAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbRefreshAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbEditAssociadoMais))
+                        .addGap(8, 8, 8))
                     .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jspAssociadoMais)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbAddAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbRemoveAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbRefreshAssociadoMais, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbEditAssociadoMais))
-                .addGap(8, 8, 8))
+                        .addGap(17, 17, 17)
+                        .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jpAssociadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                                .addComponent(jlIDEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jlNomeEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63))
+                            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                                .addGap(517, 517, 517)
+                                .addComponent(jbSairAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         jpAssociadoMaisLayout.setVerticalGroup(
             jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
                 .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbSairAnimal)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                    .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                        .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                                .addComponent(jbSairAnimal)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlIDEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlNomeEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpAssociadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                            .addComponent(jlNomeEscrever, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jpAssociadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jpAssociadoMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpAssociadoMaisLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
                         .addComponent(jbAddAssociadoMais)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbEditAssociadoMais)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbRemoveAssociadoMais)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbRefreshAssociadoMais))
-                    .addComponent(jspAssociadoMais, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(jbRefreshAssociadoMais)
+                        .addGap(119, 119, 119))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAssociadoMaisLayout.createSequentialGroup()
+                        .addComponent(jspAssociadoMais, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jpPrincipal.add(jpAssociadoMais, "card2");
@@ -478,7 +626,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
                 .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(jpBarLayout.createSequentialGroup()
                         .addComponent(jbBarVenda)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -552,7 +700,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpUsuarioLayout.createSequentialGroup()
                 .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addGroup(jpUsuarioLayout.createSequentialGroup()
                         .addComponent(jbAddUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -566,6 +714,33 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         jpPrincipal.add(jpUsuario, "card2");
+
+        jMenu1.setText("Trocar Empresa");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Juiz de Fora");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Matias Barbosa");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -629,11 +804,51 @@ public class NewJFrame extends javax.swing.JFrame {
 //-------------BUSCA FIM-----------
     
     private void jbHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHome1ActionPerformed
-        jpPrincipal.removeAll();
-        jpPrincipal.add(jpBar);
-        jpPrincipal.repaint();
-        jpPrincipal.revalidate();
+        try{
+            jpPrincipal.removeAll();
+            jpPrincipal.add(jpRegistro);
+            jpPrincipal.repaint();
+            jpPrincipal.revalidate();
+        
+           //-------------BUSCA INICIO-----------
+            ArrayList<Associado> listaDentro = new DAOAssociado().buscarTodosNoClube();
+            carregaGridAssociadoNoClube(listaDentro);          
+            
+            ArrayList<Associado> listaFora = new DAOAssociado().buscarTodosForaDoClube();
+            carregaGridAssociadoForaDoClube(listaFora); 
+            
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        } 
+        
     }//GEN-LAST:event_jbHome1ActionPerformed
+    public void carregaGridAssociadoNoClube(ArrayList<Associado> lista) {
+        String[] nomeColunas = {"ID", "Nome", "Nascimento", "CPF", "RG", "Telefone"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Associado u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getDataNascimento(), u.getCpf(),
+                u.getRg(), u.getTelefone()};
+            dtm.addRow(values);
+        }
+        
+        jtNoClube.setModel(dtm);
+    }
+    
+    public void carregaGridAssociadoForaDoClube(ArrayList<Associado> lista) {
+        String[] nomeColunas = {"ID", "Nome", "Nascimento", "CPF", "RG", "Telefone"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Associado u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getDataNascimento(), u.getCpf(),
+                u.getRg(), u.getTelefone()};
+            dtm.addRow(values);
+        }
+        
+        jtFora.setModel(dtm);
+    }
 
     private void jbBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBarActionPerformed
         try{
@@ -728,12 +943,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
             try {
                 Associado usu = new DAOAssociado().buscarPorId(id);
-                
+                Mensalidade men = new DAOMensalidade().buscarPorIdAssociado(id);
                 JDCadastroAssociados jdc = new JDCadastroAssociados(null,true);
                 
                 ArrayList<Associado> lista = new DAOAssociado().buscarTodos();
                 
-                jdc.alterarRegisto(usu);
+                jdc.alterarRegisto(usu, men);
                 jdc.show();
                 
                 carregaGridAssociado(new DAOAssociado().buscarTodos());
@@ -760,8 +975,12 @@ public class NewJFrame extends javax.swing.JFrame {
                     
                     Associado u = new Associado();
                     u.setId(id);
+                    
                     new DAOAssociado().apagar(u);
+                    
                     new DAOContaBar().apagarContaBar(u);
+                    new DAOMensalidade().apagarMensalidade(u);
+                    
                     carregaGridAssociado(new DAOAssociado().buscarTodos());
                     JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
                     
@@ -998,6 +1217,136 @@ public class NewJFrame extends javax.swing.JFrame {
         jpPrincipal.revalidate();
     }//GEN-LAST:event_jbSairAnimalActionPerformed
 
+    private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
+        int row = jtFora.getSelectedRow();
+                
+        if(row < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int idAss = (int) jtFora.getValueAt(row, 0);
+                try {
+                    
+                    Associado u = new Associado();
+                    u.setId(idAss);
+                    
+                    Mensalidade m = new DAOMensalidade().buscarPorIdAssociado(idAss);
+//                    Mensalidade m = new Mensalidade();
+//                    m.setIdAssociado(idAss);
+//                    new DAOMensalidade().verificarPendenciaIDAssociado(idAss);
+                    
+                    if(m.isPagamentoPendente()){
+                        JOptionPane.showMessageDialog(null, "Cadastro com pendencias.");
+//                        chamarFichaAssociadoPendente();
+                        
+                    }else{
+                        new DAOAssociado().entrarNoClube(u);
+
+                        ArrayList<Associado> listaDentro = new DAOAssociado().buscarTodosNoClube();
+                        carregaGridAssociadoNoClube(listaDentro);          
+
+                        ArrayList<Associado> listaFora = new DAOAssociado().buscarTodosForaDoClube();
+                        carregaGridAssociadoForaDoClube(listaFora); 
+
+                        JOptionPane.showMessageDialog(null, "Associado / Dependente liberado para entrar!");
+                    }
+
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+                }
+        }
+    }//GEN-LAST:event_jbEntrarActionPerformed
+    private void chamarFichaAssociadoPendente(){
+        
+        try{
+        
+            jpPrincipal.removeAll();
+            jpPrincipal.add(jpAssociadoMais);
+            jpPrincipal.repaint();
+            jpPrincipal.revalidate();
+        
+            int id = (int) jtFora.getValueAt(jtFora.getSelectedRow(), 0);
+
+            Associado ass = new DAOAssociado().buscarPorId(id);
+
+            jlIDEscrever.setText(String.valueOf(ass.getId()));
+            jlCPFEscrever.setText(String.valueOf(ass.getCpf()));
+            jlRGEscrever.setText(String.valueOf(ass.getRg()));
+            jlNomeEscrever.setText(String.valueOf(ass.getNome()));
+            jlTelefoneEscrever.setText(String.valueOf(ass.getTelefone()));
+            jlNascEscrever.setText(String.valueOf(ass.getDataNascimento()));
+                
+              ArrayList<Dependente> lista = new DAODependente().getDependenteAssociado(ass.getId());
+            
+            carregaGridDependentes(lista);  
+            
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        } 
+}
+    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
+        int row = jtNoClube.getSelectedRow();
+                
+        if(row < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtNoClube.getValueAt(row, 0);
+                try {
+                    
+                    Associado u = new Associado();
+                    u.setId(id);
+                    new DAOAssociado().sairDoClube(u);
+
+                    ArrayList<Associado> listaDentro = new DAOAssociado().buscarTodosNoClube();
+                    carregaGridAssociadoNoClube(listaDentro);          
+
+                    ArrayList<Associado> listaFora = new DAOAssociado().buscarTodosForaDoClube();
+                    carregaGridAssociadoForaDoClube(listaFora); 
+
+                    JOptionPane.showMessageDialog(null, "Associado / Dependente liberado para entrar!");
+
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+                }
+        }
+    }//GEN-LAST:event_jbSairActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Empresa e = new Empresa();
+        DAOEmpresa dao = new DAOEmpresa();
+        try {
+                dao.selecionaJF(e);
+                JOptionPane.showMessageDialog(null, "Empresa selecionada: Juiz de Fora");
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Empresa e = new Empresa();
+        DAOEmpresa dao = new DAOEmpresa();
+        try {
+                dao.selecionaMB(e);
+                JOptionPane.showMessageDialog(null, "Empresa selecionada: Matias Barbosa");
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1034,6 +1383,13 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAddAssociado;
     private javax.swing.JButton jbAddAssociadoMais;
     private javax.swing.JButton jbAddUsuario;
@@ -1044,6 +1400,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jbEditAssociado;
     private javax.swing.JButton jbEditAssociadoMais;
     private javax.swing.JButton jbEditUsuario;
+    private javax.swing.JButton jbEntrar;
     private javax.swing.JButton jbHome1;
     private javax.swing.JButton jbRefreshAssociado;
     private javax.swing.JButton jbRefreshAssociadoMais;
@@ -1051,6 +1408,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jbRemoveAssociado;
     private javax.swing.JButton jbRemoveAssociadoMais;
     private javax.swing.JButton jbRemoveUsuario;
+    private javax.swing.JButton jbSair;
     private javax.swing.JButton jbSairAnimal;
     private javax.swing.JButton jbUsuario;
     private javax.swing.JLabel jlCPF;
@@ -1067,9 +1425,13 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpAssociadoInfo;
     private javax.swing.JPanel jpAssociadoMais;
     private javax.swing.JPanel jpBar;
+    private javax.swing.JPanel jpHome;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpPrincipal;
+    private javax.swing.JPanel jpRegistro;
     private javax.swing.JPanel jpUsuario;
+    private javax.swing.JScrollPane jsFora;
+    private javax.swing.JScrollPane jsNoClube;
     private javax.swing.JScrollPane jspAssociado;
     private javax.swing.JScrollPane jspAssociadoMais;
     private javax.swing.JScrollPane jspBarAssociado;
@@ -1077,6 +1439,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTable jtAssociado;
     private javax.swing.JTable jtBarAssociado;
     private javax.swing.JTable jtDependentes;
+    private javax.swing.JTable jtFora;
+    private javax.swing.JTable jtNoClube;
     private javax.swing.JTable jtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -67,12 +67,13 @@ import java.util.ArrayList;
     public void apagar(Associado a) throws ClassNotFoundException, SQLException {
         Connection c = ConnectionClube.getConnection();
         
-        String comando = "DELETE FROM associado "
-                + "WHERE id_associado = ?;";
+        String comando = "DELETE FROM associado WHERE id_associado = ?;";
         
         PreparedStatement prepara  = c.prepareStatement(comando);
         prepara.setInt(1, a.getId());
+        System.out.println("dsd"+a.getId());
         prepara.executeUpdate();
+        System.out.println("dsd");
     }
 
     @Override
@@ -94,7 +95,6 @@ import java.util.ArrayList;
             associado.setMeusDependentes(new DAODependente().getDependenteAssociado(rs.getInt("id_associado")));
         }
         return associado;  
-        
     }
 
     @Override
@@ -114,7 +114,70 @@ import java.util.ArrayList;
             lista.add(associado);
         }
         return lista;    
-    }   
+    }
+    
+    public ArrayList<Associado> buscarTodosNoClube() throws ClassNotFoundException, SQLException {
+        Connection c = ConnectionClube.getConnection();
+        String comando = "SELECT * FROM associado WHERE no_clube = 1;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        
+        ArrayList<Associado> lista = new ArrayList<>();
+        ResultSet rs = prepara.executeQuery();
+        
+        while(rs.next()) {//usando construtor sem Banco
+//            ArrayList<Associado> listaAssociado = new ArrayList<>();
+            Associado associado = new Associado(rs.getString("cpf"), rs.getString("rg"), 
+                    rs.getString("telefone"), rs.getInt("id_associado"),  rs.getString("nome"),rs.getString("data_nasc"));
+            
+            lista.add(associado);
+        }
+        return lista;    
+    } 
+    
+    public ArrayList<Associado> buscarTodosForaDoClube() throws ClassNotFoundException, SQLException {
+        Connection c = ConnectionClube.getConnection();
+        String comando = "SELECT * FROM associado WHERE no_clube = 0;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        
+        ArrayList<Associado> lista = new ArrayList<>();
+        ResultSet rs = prepara.executeQuery();
+        
+        while(rs.next()) {//usando construtor sem Banco
+//            ArrayList<Associado> listaAssociado = new ArrayList<>();
+            Associado associado = new Associado(rs.getString("cpf"), rs.getString("rg"), 
+                    rs.getString("telefone"), rs.getInt("id_associado"),  rs.getString("nome"),rs.getString("data_nasc"));
+            
+            lista.add(associado);
+        }
+        return lista;    
+    }
+    
+    public void entrarNoClube(Associado a) throws ClassNotFoundException, SQLException {
+       Connection c = ConnectionClube.getConnection();
+        
+        String comando = "UPDATE associado SET "
+                + "no_clube = 1 "
+                + "WHERE id_associado = ?;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+
+        prepara.setInt(1, a.getId());
+        
+        prepara.executeUpdate();
+    }
+    
+    public void sairDoClube(Associado a) throws ClassNotFoundException, SQLException {
+       Connection c = ConnectionClube.getConnection();
+        
+        String comando = "UPDATE associado SET "
+                + "no_clube = 0 "
+                + "WHERE id_associado = ?;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+
+        prepara.setInt(1, a.getId());
+        
+        prepara.executeUpdate();
+    }
+    
       
 
     @Override

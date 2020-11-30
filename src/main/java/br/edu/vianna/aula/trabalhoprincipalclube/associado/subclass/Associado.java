@@ -20,6 +20,7 @@ public class Associado extends Pessoa{
       private String telefone;
       private Banco banco;
       private ArrayList<Dependente> meusDependentes;
+      private boolean noClube;
       
       public Associado() {
       }
@@ -41,8 +42,15 @@ public class Associado extends Pessoa{
         this.banco = banco;
         meusDependentes = new ArrayList<>();
     }
-      
 
+    public boolean isNoClube() {
+        return noClube;
+    }
+
+    public void setNoClube(boolean noClube) {
+        this.noClube = noClube;
+    }
+      
     public String getCpf() {
         return cpf;
     }

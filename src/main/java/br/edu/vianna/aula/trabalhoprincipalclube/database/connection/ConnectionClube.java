@@ -9,7 +9,11 @@ import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOAssociado;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAODependente;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOEmpresa;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOMensalidade;
 import br.edu.vianna.aula.trabalhoprincipalclube.enums.ETipoDependente;
+import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.Mensalidade;
+import br.edu.vianna.aula.trabalhoprincipalclube.operacoes.Empresa;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -43,11 +47,18 @@ public class ConnectionClube {//padrao singleton
     }
     
     //provavelmente vai ser apagado depois
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
       
-        Dependente usu = new Dependente(ETipoDependente.Conjuge,0,"menino","02002");
+        
+        
+//                Empresa e = new Empresa();
+//                new DAOEmpresa().selecionaMB(e);
+                
+//        Mensalidade m = new Mensalidade
+//        DAOMensalidade().verificarPendencia(m);
+//        Dependente usu = new Dependente(ETipoDependente.Conjuge,0,"menino","02002");
 //        Animal usa = new Gato(ECatRaca.PERSA, 0, "Malaquias", EAnimalSexo.F, "2002", false, false);
-        try {
+//        try {
 //            
         //Dependente ass = new Dependente("Filho", 8, "JAo", "001010");
         //new DAODependente().getDependenteAssociado(8);
@@ -55,17 +66,12 @@ public class ConnectionClube {//padrao singleton
 //            //----testes DAO
 //            new DAOAssociado().buscarPorId(usu);
 //            new DAOAnimal().inserirAdocao(usa);
-            new DAODependente().inserir(usu);
+//            new DAODependente().inserir(usu);
 //            new DAOAnimal().inserir(usa);
 //            new DAORecurso().alterar(usu);
 //            new DAOAdotante().inserir(usu);
 //            new DAOUsuario().buscarPorId(7);
 //            
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Erro no Main");
-        } catch (SQLException ex) {
-            System.out.println("Erro geral!");
-        }
 
 
 

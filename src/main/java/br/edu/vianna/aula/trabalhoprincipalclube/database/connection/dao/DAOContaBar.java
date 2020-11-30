@@ -6,8 +6,10 @@
 package br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao;
 
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.ConnectionClube;
 import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.ContaBar;
+import br.edu.vianna.aula.trabalhoprincipalclube.operacoes.Empresa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -38,14 +40,16 @@ public class DAOContaBar implements IDaoGenerics<ContaBar, Integer>{
         prepara.executeUpdate();//executar comando
     }
     
-    public void realizarVenda(Associado a, double i) throws ClassNotFoundException, SQLException {
+    public void realizarVendaEmpresa(Associado a, double i, int idEmpresa) throws ClassNotFoundException, SQLException {
         Connection c = ConnectionClube.getConnection();//pegando a conexao la do ConnectionAbrigo
-        String sql = "UPDATE conta_bar SET valor_conta = valor_conta + ? "
+        String sql = "UPDATE conta_bar SET valor_conta = valor_conta + ?, empresa = ? "
                 + "WHERE id_associado = ?";//comando
         PreparedStatement prepara  = c.prepareStatement(sql);//preparando
         prepara.setDouble(1, i);//primeira '?'
-        prepara.setInt(2, a.getId());//primeira '?'
+        prepara.setInt(2, idEmpresa);//primeira '?'
+        prepara.setInt(3, a.getId());//primeira '?'
         prepara.executeUpdate();//executar comando
+        
     }
 
     @Override

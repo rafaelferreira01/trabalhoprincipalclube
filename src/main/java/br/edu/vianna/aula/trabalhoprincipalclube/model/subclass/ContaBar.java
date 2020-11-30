@@ -22,7 +22,7 @@ public class ContaBar {
         this.associado = associado;
         this.valor = valor;
     }
-
+    
     public ContaBar() {
     }
 

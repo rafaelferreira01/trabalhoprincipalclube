@@ -14,7 +14,7 @@ import java.util.Date;
 public class Mensalidade {
     private int idMensalidade,idAssociado;
     private boolean PagamentoPendente;
-    private String dataVencimento;
+    private int mes;
     private double valorMensalidade;
 
     public double getValorMensalidade() {
@@ -28,17 +28,25 @@ public class Mensalidade {
     public Mensalidade() {
     }
 
-    public Mensalidade(boolean PagamentoPendente, String dataVencimento, double valorMensalidade) {
+    public Mensalidade(int diaVencimento) {
+        this.mes = diaVencimento;
+    }
+
+   
+    
+    
+
+    public Mensalidade(boolean PagamentoPendente, int mes, double valorMensalidade) {
         this.PagamentoPendente = PagamentoPendente;
-        this.dataVencimento = dataVencimento;
+        this.mes = mes;
         this.valorMensalidade = valorMensalidade;
     }
 
-    public Mensalidade(int idAssociado, boolean PagamentoPendente, String dataVencimento, double valorMensalidade) {
+    public Mensalidade(int idAssociado, boolean PagamentoPendente, int mes, double valorMensalidade) {
       
         this.idAssociado = idAssociado;
         this.PagamentoPendente = PagamentoPendente;
-        this.dataVencimento = dataVencimento;
+        this.mes = mes;
         this.valorMensalidade = valorMensalidade;
     }
 
@@ -69,12 +77,12 @@ public class Mensalidade {
     }
 
    
-    public String getDataVencimento() {
-        return dataVencimento;
+    public int getMes() {
+        return mes;
     }
 
-    public void setDataVencimento(String dataVencimento) {
-        this.dataVencimento = dataVencimento;
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 
     public double CalcularMensalidade (){
