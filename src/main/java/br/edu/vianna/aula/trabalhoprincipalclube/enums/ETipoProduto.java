@@ -10,8 +10,8 @@ package br.edu.vianna.aula.trabalhoprincipalclube.enums;
  * @author Leonardo
  */
 public enum ETipoProduto {
-        Almoco(1, "1 - Almoço)"),
-	Filho(2, "2 - Lanche");
+        ALMOCO(1, "1 - Almoço)"),
+	LANCHE(2, "2 - Lanche");
     private int codigo;
     private String descricao;
         

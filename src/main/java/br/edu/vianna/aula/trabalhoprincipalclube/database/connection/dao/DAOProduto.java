@@ -84,7 +84,23 @@ public class DAOProduto implements IDaoGenerics <Produto, Integer> {
             rs.getString("descricao"), rs.getDouble("valor"));
         }
         return produto;  
-      
+    } 
+    
+    public Produto buscarPorTipo(String i) throws ClassNotFoundException, SQLException {
+        Connection c = ConnectionClube.getConnection();
+        
+        String comando = "SELECT * FROM produto "
+                + "WHERE tipo_produto = ?;";
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        prepara.setString(1, i);
+        Produto produto = null;
+        ResultSet rs = prepara.executeQuery();//objeto ResultSet recebe todos os elementos da tabela buscada
+        
+        while(rs.next()) {
+            produto = new Produto(ETipoProduto.valueOf(rs.getString("tipo_produto")), 
+            rs.getString("descricao"), rs.getDouble("valor_produto"));
+        }
+        return produto;  
     } 
 
     @Override

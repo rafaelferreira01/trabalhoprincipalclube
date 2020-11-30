@@ -8,11 +8,15 @@ package br.edu.vianna.aula.trabalhoprincipalclube.view;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Dependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOAssociado;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOContaBar;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAODependente;
+import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDBarVenda;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroAssociados;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroDependentes;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -72,12 +76,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jlIDEscrever = new javax.swing.JLabel();
         jlNomeEscrever = new javax.swing.JLabel();
         jpBar = new javax.swing.JPanel();
-        jspBar = new javax.swing.JScrollPane();
-        jtBar = new javax.swing.JTable();
-        jbAddAnimal = new javax.swing.JButton();
-        jbEditAnimal = new javax.swing.JButton();
-        jbRemoveAnimal = new javax.swing.JButton();
-        jbRefreshAnimal = new javax.swing.JButton();
+        jspBarAssociado = new javax.swing.JScrollPane();
+        jtBarAssociado = new javax.swing.JTable();
+        jbBarVenda = new javax.swing.JButton();
         jpUsuario = new javax.swing.JPanel();
         jspUsuario = new javax.swing.JScrollPane();
         jtUsuario = new javax.swing.JTable();
@@ -442,7 +443,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpBar.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Bar"));
 
-        jtBar.setModel(new javax.swing.table.DefaultTableModel(
+        jtBarAssociado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -453,37 +454,13 @@ public class NewJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jspBar.setViewportView(jtBar);
+        jspBarAssociado.setViewportView(jtBarAssociado);
 
-        jbAddAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add (1).png"))); // NOI18N
-        jbAddAnimal.setToolTipText("Adicionar");
-        jbAddAnimal.addActionListener(new java.awt.event.ActionListener() {
+        jbBarVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pie24.png"))); // NOI18N
+        jbBarVenda.setToolTipText("Adicionar");
+        jbBarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAddAnimalActionPerformed(evt);
-            }
-        });
-
-        jbEditAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
-        jbEditAnimal.setToolTipText("Editar");
-        jbEditAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEditAnimalActionPerformed(evt);
-            }
-        });
-
-        jbRemoveAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
-        jbRemoveAnimal.setToolTipText("Excluir");
-        jbRemoveAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRemoveAnimalActionPerformed(evt);
-            }
-        });
-
-        jbRefreshAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refresh.png"))); // NOI18N
-        jbRefreshAnimal.setToolTipText("Atualizar");
-        jbRefreshAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRefreshAnimalActionPerformed(evt);
+                jbBarVendaActionPerformed(evt);
             }
         });
 
@@ -492,28 +469,18 @@ public class NewJFrame extends javax.swing.JFrame {
         jpBarLayout.setHorizontalGroup(
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
-                .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbAddAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbRemoveAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbRefreshAnimal, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbEditAnimal))
+                .addComponent(jbBarVenda)
                 .addGap(8, 8, 8))
         );
         jpBarLayout.setVerticalGroup(
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
                 .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspBar, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                     .addGroup(jpBarLayout.createSequentialGroup()
-                        .addComponent(jbAddAnimal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbEditAnimal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbRemoveAnimal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbRefreshAnimal)
+                        .addComponent(jbBarVenda)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -658,6 +625,7 @@ public class NewJFrame extends javax.swing.JFrame {
         
         jtAssociado.setModel(dtm);
     }
+    
 //-------------BUSCA FIM-----------
     
     private void jbHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHome1ActionPerformed
@@ -668,32 +636,59 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbHome1ActionPerformed
 
     private void jbBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBarActionPerformed
+        try{
         jpPrincipal.removeAll();
         jpPrincipal.add(jpBar);
         jpPrincipal.repaint();
         jpPrincipal.revalidate();
+            
+        //-------------BUSCA INICIO-----------
+        
+        ArrayList<Associado> lista = new DAOAssociado().buscarTodos();
+
+        carregaGridAssociadoBar(lista);          
+            
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        } 
     }//GEN-LAST:event_jbBarActionPerformed
 
+    public void carregaGridAssociadoBar(ArrayList<Associado> lista) {
+        String[] nomeColunas = {"ID", "Nome", "Nascimento", "CPF", "RG", "Telefone"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Associado u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getDataNascimento(), u.getCpf(),
+                u.getRg(), u.getTelefone()};
+            dtm.addRow(values);
+        }
+        
+        jtBarAssociado.setModel(dtm);
+    }
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         JDViewLogin login = new JDViewLogin(this, true);
         login.setVisible(true);
     }//GEN-LAST:event_formWindowOpened
 
-    private void jbAddAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAnimalActionPerformed
-
-    }//GEN-LAST:event_jbAddAnimalActionPerformed
-
-    private void jbEditAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditAnimalActionPerformed
-
-    }//GEN-LAST:event_jbEditAnimalActionPerformed
-
-    private void jbRemoveAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveAnimalActionPerformed
-
-    }//GEN-LAST:event_jbRemoveAnimalActionPerformed
-
-    private void jbRefreshAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshAnimalActionPerformed
-
-    }//GEN-LAST:event_jbRefreshAnimalActionPerformed
+    private void jbBarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBarVendaActionPerformed
+        int linha = jtBarAssociado.getSelectedRow();
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+             int id = (int) jtBarAssociado.getValueAt(linha, 0);
+            try {
+                Associado ass = new DAOAssociado().buscarPorId(id);
+                new JDBarVenda(null,true, ass).show();
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+            }
+        }
+    }//GEN-LAST:event_jbBarVendaActionPerformed
 
     private void jbAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddUsuarioActionPerformed
         // TODO add your handling code here:
@@ -766,6 +761,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     Associado u = new Associado();
                     u.setId(id);
                     new DAOAssociado().apagar(u);
+                    new DAOContaBar().apagarContaBar(u);
                     carregaGridAssociado(new DAOAssociado().buscarTodos());
                     JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
                     
@@ -1038,23 +1034,20 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jbAddAnimal;
     private javax.swing.JButton jbAddAssociado;
     private javax.swing.JButton jbAddAssociadoMais;
     private javax.swing.JButton jbAddUsuario;
     private javax.swing.JButton jbAssociado;
     private javax.swing.JButton jbAssociadoMais;
     private javax.swing.JButton jbBar;
-    private javax.swing.JButton jbEditAnimal;
+    private javax.swing.JButton jbBarVenda;
     private javax.swing.JButton jbEditAssociado;
     private javax.swing.JButton jbEditAssociadoMais;
     private javax.swing.JButton jbEditUsuario;
     private javax.swing.JButton jbHome1;
-    private javax.swing.JButton jbRefreshAnimal;
     private javax.swing.JButton jbRefreshAssociado;
     private javax.swing.JButton jbRefreshAssociadoMais;
     private javax.swing.JButton jbRefreshUsuario;
-    private javax.swing.JButton jbRemoveAnimal;
     private javax.swing.JButton jbRemoveAssociado;
     private javax.swing.JButton jbRemoveAssociadoMais;
     private javax.swing.JButton jbRemoveUsuario;
@@ -1079,10 +1072,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpUsuario;
     private javax.swing.JScrollPane jspAssociado;
     private javax.swing.JScrollPane jspAssociadoMais;
-    private javax.swing.JScrollPane jspBar;
+    private javax.swing.JScrollPane jspBarAssociado;
     private javax.swing.JScrollPane jspUsuario;
     private javax.swing.JTable jtAssociado;
-    private javax.swing.JTable jtBar;
+    private javax.swing.JTable jtBarAssociado;
     private javax.swing.JTable jtDependentes;
     private javax.swing.JTable jtUsuario;
     // End of variables declaration//GEN-END:variables

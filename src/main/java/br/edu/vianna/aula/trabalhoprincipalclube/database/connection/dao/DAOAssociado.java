@@ -69,6 +69,7 @@ import java.util.ArrayList;
         
         String comando = "DELETE FROM associado "
                 + "WHERE id_associado = ?;";
+        
         PreparedStatement prepara  = c.prepareStatement(comando);
         prepara.setInt(1, a.getId());
         prepara.executeUpdate();
@@ -79,7 +80,7 @@ import java.util.ArrayList;
         Connection c = ConnectionClube.getConnection();
         
         String comando = "SELECT * FROM associado "
-                + "WHERE  id_associado = ?;"; 
+                + "WHERE id_associado = ?;"; 
         PreparedStatement prepara  = c.prepareStatement(comando);
         prepara.setInt(1, i);
          

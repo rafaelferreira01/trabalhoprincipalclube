@@ -36,7 +36,7 @@ public class Bar {
         this.listaProdutos.add(prod);
     }
     
-    public void removePet(int indicieProd) {
+    public void removeProduto(int indicieProd) {
         this.listaProdutos.remove(indicieProd);
     }
 

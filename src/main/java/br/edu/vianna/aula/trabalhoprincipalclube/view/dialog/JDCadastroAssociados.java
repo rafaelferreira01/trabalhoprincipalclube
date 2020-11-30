@@ -7,6 +7,7 @@ package br.edu.vianna.aula.trabalhoprincipalclube.view.dialog;
 
 import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOAssociado;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOContaBar;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -228,6 +229,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
 
             } else {
                 new DAOAssociado().inserir(u);
+                new DAOContaBar().inserirContaBar(u);
                 JOptionPane.showMessageDialog(null, "Registro inserido com sucesso.");
             }
             

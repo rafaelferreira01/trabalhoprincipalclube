@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.edu.vianna.aula.trabalhoprincipalclube.model.subclass;
+import br.edu.vianna.aula.trabalhoprincipalclube.associado.subclass.Associado;
 import java.util.Date;
 
 /**
@@ -13,16 +14,16 @@ import java.util.Date;
 public class ContaBar {
     
     private String data; 
-    public int id;
+    public Associado associado;
     private double valor;
 
-    public ContaBar() {
+    public ContaBar(String data, Associado associado, double valor) {
+        this.data = data;
+        this.associado = associado;
+        this.valor = valor;
     }
 
-    public ContaBar(String data, int idAssociado, double valor) {
-        this.data = data;
-        this.id = idAssociado;
-        this.valor = valor;
+    public ContaBar() {
     }
 
     public String getData() {
@@ -33,12 +34,12 @@ public class ContaBar {
         this.data = data;
     }
 
-    public int getId() {
-        return id;
+    public Associado getAssociado() {
+        return associado;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAssociado(Associado associado) {
+        this.associado = associado;
     }
 
     public double getValor() {
@@ -48,5 +49,5 @@ public class ContaBar {
     public void setValor(double valor) {
         this.valor = valor;
     }
-
+    
 }
