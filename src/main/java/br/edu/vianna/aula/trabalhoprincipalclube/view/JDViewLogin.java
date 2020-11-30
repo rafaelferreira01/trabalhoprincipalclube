@@ -5,7 +5,12 @@
  */
 package br.edu.vianna.aula.trabalhoprincipalclube.view;
 
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOUsuario;
 import br.edu.vianna.aula.trabalhoprincipalclube.operacoes.Operacoes;
+import br.edu.vianna.aula.trabalhoprincipalclube.usuario.Usuario;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -151,9 +156,12 @@ public class JDViewLogin extends javax.swing.JDialog {
         String login = jtfLogin.getText();//pega o valor no campo de usuario e coloca na variavel login
         String senha = jpfSenha.getText();//pega o valor no campo senha e coloca na variavel login
         
-        String nomeRetornado = Operacoes.verificaLogin(login, senha);//passa os valores das duas variaveis por parametro
+//        String nomeRetornado = Operacoes.verificaLogin(login, senha);//passa os valores das duas variaveis por parametro
         
-        if(nomeRetornado != null){
+        
+        try{
+            Usuario retornado = new DAOUsuario().verificarLoginSenha(login, senha);
+        if(retornado != null){
             setVisible(false);//fecha esse JDialog (JDViewLogin)
         }else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
@@ -162,6 +170,11 @@ public class JDViewLogin extends javax.swing.JDialog {
             jtfLogin.setText("");
             jpfSenha.setText("");
             jtfLogin.requestFocus();
+        }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JDViewLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(JDViewLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jbActionEntrar
 

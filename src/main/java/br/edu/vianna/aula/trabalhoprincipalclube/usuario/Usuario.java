@@ -5,7 +5,6 @@
  */
 package br.edu.vianna.aula.trabalhoprincipalclube.usuario;
 
-import br.edu.vianna.aula.trabalhoprincipalclube.usuario.IUsuario;
 
 /**
  *

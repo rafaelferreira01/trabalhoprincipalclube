@@ -12,16 +12,20 @@ import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOCont
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAODependente;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOEmpresa;
 import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOMensalidade;
+import br.edu.vianna.aula.trabalhoprincipalclube.database.connection.dao.DAOUsuario;
 import br.edu.vianna.aula.trabalhoprincipalclube.model.subclass.Mensalidade;
 import br.edu.vianna.aula.trabalhoprincipalclube.operacoes.Empresa;
+import br.edu.vianna.aula.trabalhoprincipalclube.usuario.Usuario;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDBarVenda;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroAssociados;
 import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDCadastroDependentes;
+import br.edu.vianna.aula.trabalhoprincipalclube.view.dialog.JDUsuarios;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -62,6 +66,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jsFora = new javax.swing.JScrollPane();
         jtFora = new javax.swing.JTable();
         jbSair = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jpAssociado = new javax.swing.JPanel();
         jspAssociado = new javax.swing.JScrollPane();
         jtAssociado = new javax.swing.JTable();
@@ -180,7 +187,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpPrincipal.setLayout(new java.awt.CardLayout());
 
-        jpHome.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Abrigo de Animais do Zezinho"));
+        jpHome.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Zezinho Country Club"));
 
         jLabel1.setText("Bem Vindo!");
 
@@ -191,19 +198,19 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(jpHomeLayout.createSequentialGroup()
                 .addGap(366, 366, 366)
                 .addComponent(jLabel1)
-                .addContainerGap(372, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
         );
         jpHomeLayout.setVerticalGroup(
             jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpHomeLayout.createSequentialGroup()
                 .addGap(287, 287, 287)
                 .addComponent(jLabel1)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         jpPrincipal.add(jpHome, "card3");
 
-        jpRegistro.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+        jpRegistro.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Entrada de saída de associados"));
 
         jtNoClube.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -219,7 +226,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jsNoClube.setViewportView(jtNoClube);
 
         jbEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/downloading (3).png"))); // NOI18N
-        jbEntrar.setToolTipText("Adicionar");
+        jbEntrar.setToolTipText("Entrada");
         jbEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEntrarActionPerformed(evt);
@@ -240,12 +247,18 @@ public class NewJFrame extends javax.swing.JFrame {
         jsFora.setViewportView(jtFora);
 
         jbSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/upload.png"))); // NOI18N
-        jbSair.setToolTipText("Adicionar");
+        jbSair.setToolTipText("Saida");
         jbSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSairActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("No Clube");
+
+        jLabel3.setText("No Clube");
+
+        jLabel4.setText("No Clube");
 
         javax.swing.GroupLayout jpRegistroLayout = new javax.swing.GroupLayout(jpRegistro);
         jpRegistro.setLayout(jpRegistroLayout);
@@ -253,31 +266,64 @@ public class NewJFrame extends javax.swing.JFrame {
             jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
                 .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jsFora, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jsNoClube, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
+                    .addComponent(jsFora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+                    .addComponent(jsNoClube))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbEntrar)
                     .addComponent(jbSair))
                 .addGap(8, 8, 8))
+            .addGroup(jpRegistroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpRegistroLayout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jLabel3)
+                    .addContainerGap(777, Short.MAX_VALUE)))
+            .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpRegistroLayout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jLabel4)
+                    .addContainerGap(777, Short.MAX_VALUE)))
         );
         jpRegistroLayout.setVerticalGroup(
             jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
-                .addGap(0, 208, Short.MAX_VALUE)
                 .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jsFora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbEntrar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jpRegistroLayout.createSequentialGroup()
+                        .addGap(0, 210, Short.MAX_VALUE)
+                        .addComponent(jbEntrar)
+                        .addGap(162, 162, 162))
+                    .addGroup(jpRegistroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jsFora, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)))
                 .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbSair)
-                    .addComponent(jsNoClube, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(jpRegistroLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jbSair)
+                        .addGap(168, 168, 168))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
+                        .addComponent(jsNoClube, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
+                    .addContainerGap(404, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addGap(290, 290, 290)))
+            .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpRegistroLayout.createSequentialGroup()
+                    .addContainerGap(404, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addGap(290, 290, 290)))
         );
 
         jpPrincipal.add(jpRegistro, "card2");
 
-        jpAssociado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+        jpAssociado.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Associados"));
 
         jtAssociado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,7 +371,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jbAssociadoMais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal-information.png"))); // NOI18N
-        jbAssociadoMais.setToolTipText("Atualizar");
+        jbAssociadoMais.setToolTipText("Mais informações");
         jbAssociadoMais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAssociadoMaisActionPerformed(evt);
@@ -337,7 +383,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpAssociadoLayout.setHorizontalGroup(
             jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoLayout.createSequentialGroup()
-                .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +397,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAssociadoLayout.createSequentialGroup()
                 .addGroup(jpAssociadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addComponent(jspAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                     .addGroup(jpAssociadoLayout.createSequentialGroup()
                         .addComponent(jbAddAssociado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,7 +413,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jpPrincipal.add(jpAssociado, "card2");
 
-        jpAssociadoMais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Home"));
+        jpAssociadoMais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Detalhes"));
 
         jspAssociadoMais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dependentes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -617,7 +663,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpBarLayout.setHorizontalGroup(
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
-                .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbBarVenda)
                 .addGap(8, 8, 8))
@@ -626,7 +672,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBarLayout.createSequentialGroup()
                 .addGroup(jpBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addComponent(jspBarAssociado, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                     .addGroup(jpBarLayout.createSequentialGroup()
                         .addComponent(jbBarVenda)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -687,7 +733,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpUsuarioLayout.setHorizontalGroup(
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpUsuarioLayout.createSequentialGroup()
-                .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbAddUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -700,7 +746,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpUsuarioLayout.createSequentialGroup()
                 .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addComponent(jspUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                     .addGroup(jpUsuarioLayout.createSequentialGroup()
                         .addComponent(jbAddUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -906,19 +952,80 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbBarVendaActionPerformed
 
     private void jbAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddUsuarioActionPerformed
-        // TODO add your handling code here:
+        try {
+            new JDUsuarios(null,true).show();
+            carregaGridUsuarios(new DAOUsuario().buscarTodos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
     }//GEN-LAST:event_jbAddUsuarioActionPerformed
 
     private void jbEditUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditUsuarioActionPerformed
-        // TODO add your handling code here:
+        //ALTERAR
+        int linha = jtUsuario.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtUsuario.getValueAt(linha, 0);
+
+            try {
+                Usuario usu = new DAOUsuario().buscarPorId(id);
+                
+                JDUsuarios jdc = new JDUsuarios(null,true);
+                
+                ArrayList<Usuario> lista = new DAOUsuario().buscarTodos();
+                
+                jdc.alterarRegisto(usu);
+                jdc.show();
+                
+                carregaGridUsuarios(new DAOUsuario().buscarTodos());
+                
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+            }
+        }
     }//GEN-LAST:event_jbEditUsuarioActionPerformed
 
     private void jbRemoveUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemoveUsuarioActionPerformed
-        // TODO add your handling code here:
+        //REMOVER
+        int linha = jtUsuario.getSelectedRow();
+                
+        if(linha < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma entrada da lista.");
+        }else{
+            int id = (int) jtUsuario.getValueAt(linha, 0);
+            if(JOptionPane.showConfirmDialog(null, "Deseja excluir a entrada selecionada?") == JOptionPane.YES_OPTION){
+                
+                try {
+                    
+                    Usuario u = new Usuario();
+                    u.setId(id);
+                    new DAOUsuario().apagar(u);
+                    carregaGridUsuarios(new DAOUsuario().buscarTodos());
+                    JOptionPane.showMessageDialog(null, "Registro excluido com sucesso.");
+                    
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+                }
+            }
+        }
     }//GEN-LAST:event_jbRemoveUsuarioActionPerformed
 
     private void jbRefreshUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRefreshUsuarioActionPerformed
-        // TODO add your handling code here:
+        try {
+            carregaGridUsuarios(new DAOUsuario().buscarTodos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        }
     }//GEN-LAST:event_jbRefreshUsuarioActionPerformed
 
     private void jbAddAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoActionPerformed
@@ -943,12 +1050,13 @@ public class NewJFrame extends javax.swing.JFrame {
 
             try {
                 Associado usu = new DAOAssociado().buscarPorId(id);
-                Mensalidade men = new DAOMensalidade().buscarPorIdAssociado(id);
+//                Mensalidade men = new DAOMensalidade().buscarPorIdAssociado(id);
                 JDCadastroAssociados jdc = new JDCadastroAssociados(null,true);
                 
                 ArrayList<Associado> lista = new DAOAssociado().buscarTodos();
                 
-                jdc.alterarRegisto(usu, men);
+//                jdc.alterarRegisto(usu, men);
+                jdc.alterarRegisto(usu);
                 jdc.show();
                 
                 carregaGridAssociado(new DAOAssociado().buscarTodos());
@@ -1101,12 +1209,38 @@ public class NewJFrame extends javax.swing.JFrame {
     
     
     private void jbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbUsuarioActionPerformed
-        jpPrincipal.removeAll();
-        jpPrincipal.add(jpUsuario);
-        jpPrincipal.repaint();
-        jpPrincipal.revalidate();
+        jtUsuario.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        try {
+            jpPrincipal.removeAll();
+            jpPrincipal.add(jpUsuario);
+            jpPrincipal.repaint();
+            jpPrincipal.revalidate();
+            //----------------------
+            
+            //-------------BUSCA INICIO-----------
+            ArrayList<Usuario> lista = new DAOUsuario().buscarTodos();
+            
+            carregaGridUsuarios(lista);          
+            
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Driver não encontrado.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco ou na consulta.");
+        } 
     }//GEN-LAST:event_jbUsuarioActionPerformed
 
+    public void carregaGridUsuarios(ArrayList<Usuario> lista) {
+        String[] nomeColunas = {"ID", "Nome", "Username", "Senha"};
+        DefaultTableModel dtm = new DefaultTableModel(nomeColunas, 0);
+        
+        for (Usuario u : lista) {
+            Object[] values = {u.getId(), u.getNome(), u.getUserName(), u.getSenha()};
+            dtm.addRow(values);
+        }
+        
+        jtUsuario.setModel(dtm);
+    }
+    
     private void jbAddAssociadoMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAssociadoMaisActionPerformed
         try {
             int linha = jtAssociado.getSelectedRow();
@@ -1384,6 +1518,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

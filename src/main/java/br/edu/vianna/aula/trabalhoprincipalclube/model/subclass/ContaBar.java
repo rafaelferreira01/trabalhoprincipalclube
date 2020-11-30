@@ -15,12 +15,12 @@ public class ContaBar {
     
     private String data; 
     public Associado associado;
-    private double valor;
+    private double valor_e1;
 
     public ContaBar(String data, Associado associado, double valor) {
         this.data = data;
         this.associado = associado;
-        this.valor = valor;
+        this.valor_e1 = valor;
     }
     
     public ContaBar() {
@@ -42,12 +42,12 @@ public class ContaBar {
         this.associado = associado;
     }
 
-    public double getValor() {
-        return valor;
+    public double getValor_e1() {
+        return valor_e1;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValor_e1(double valor_e1) {
+        this.valor_e1 = valor_e1;
     }
     
 }

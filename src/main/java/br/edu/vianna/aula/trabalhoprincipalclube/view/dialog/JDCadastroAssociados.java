@@ -31,7 +31,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
     /*{u.getId(), u.getNome(), u.getDataNascimento(), u.getCpf(),
                 u.getRg(), u.getTelefone()};*/
 
-    public void alterarRegisto(Associado u, Mensalidade m) {
+    public void alterarRegisto(Associado u) {
         //criado pra alterar usuarios
         jtID.setText(String.valueOf(u.getId()));
         jtCPF.setText(String.valueOf(u.getCpf()));
