@@ -72,7 +72,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Cadastro de Adotantes"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Cadastro de Associados"));
 
         jlNome.setText("Nome");
 
@@ -223,8 +223,9 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
         //INSERIR
         Associado u = new Associado(jtCPF.getText(), jtRG.getText(), jtTelefone.getText(), 
                 0, jtNome.getText(), jftNasc.getText());
-//        Mensalidade m = new Mensalidade(Integer.parseInt(jtVencimDia.getText()));
-        
+        Mensalidade m = new Mensalidade();
+        m.setValorMensalidade(300.00);
+        System.out.println(""+m.getValorMensalidade());
         try {
             if(!jtID.getText().isEmpty()){//se o campo da chave primeira desse objeto estiver 
                 //vazio entao vai ser um insert, caso contrario vai ser um update
@@ -238,7 +239,7 @@ public class JDCadastroAssociados extends javax.swing.JDialog {
                 new DAOAssociado().inserir(u);
                 new DAOContaBar().inserirContaBar(u);
                 
-//                new DAOMensalidade().inserirMensalidade(m, u);
+                new DAOMensalidade().inserirMensalidade(m, u);
                 
                 JOptionPane.showMessageDialog(null, "Registro inserido com sucesso.");
             }

@@ -14,13 +14,34 @@ import java.util.Date;
 public class ContaBar {
     
     private String data; 
-    public Associado associado;
-    private double valor_e1;
+    private Associado associado;
+    private double valor;
+    private boolean pendente;
 
-    public ContaBar(String data, Associado associado, double valor) {
+    public boolean isPendente() {
+        return pendente;
+    }
+
+    public void setPendente(boolean pendente) {
+        this.pendente = pendente;
+    }
+
+    public ContaBar(String data, Associado associado, double valor, boolean pendente) {
         this.data = data;
         this.associado = associado;
-        this.valor_e1 = valor;
+        this.valor = valor;
+        this.pendente = pendente;
+    }
+    
+    public ContaBar(Associado associado, double valor, boolean pendente) {
+        this.associado = associado;
+        this.valor = valor;
+        this.pendente = pendente;
+    }
+    
+    public ContaBar(double valor, boolean pendente) {
+        this.valor = valor;
+        this.pendente = pendente;
     }
     
     public ContaBar() {
@@ -42,12 +63,12 @@ public class ContaBar {
         this.associado = associado;
     }
 
-    public double getValor_e1() {
-        return valor_e1;
+    public double getValor() {
+        return valor;
     }
 
-    public void setValor_e1(double valor_e1) {
-        this.valor_e1 = valor_e1;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
     
 }

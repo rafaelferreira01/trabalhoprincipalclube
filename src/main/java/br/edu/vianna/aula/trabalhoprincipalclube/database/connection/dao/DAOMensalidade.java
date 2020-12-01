@@ -20,12 +20,24 @@ import java.util.ArrayList;
  */
 public class DAOMensalidade implements IDaoGenerics <Mensalidade, Integer> {
 
+    public void pagarMensalidade(Mensalidade m, Integer i) throws ClassNotFoundException, SQLException {
+       Connection c = ConnectionClube.getConnection();
+        
+        String comando = "UPDATE mensalidade SET pagamento_pendente = 0, valor_mensalidade = 0 WHERE id_associado = ?;";
+        
+        PreparedStatement prepara  = c.prepareStatement(comando);
+        
+        prepara.setInt(1, i);
+        
+        prepara.executeUpdate();
+        
+    }
     
     public Mensalidade buscarPorIdAssociado(Integer i) throws ClassNotFoundException, SQLException {
         Connection c = ConnectionClube.getConnection();
         
-        String comando = "SELECT * FROM mensalidade "
-                + "WHERE id_associado = ?;";
+        String comando = "SELECT * FROM mensalidade  WHERE id_associado = ?;";
+        
         PreparedStatement prepara  = c.prepareStatement(comando);
         prepara.setInt(1, i);
          
@@ -43,13 +55,14 @@ public class DAOMensalidade implements IDaoGenerics <Mensalidade, Integer> {
     public void inserirMensalidade(Mensalidade m, Associado a) throws ClassNotFoundException, SQLException {
         Connection c = ConnectionClube.getConnection();
         
-        String comando = "INSERT INTO mensalidade (id_associado, dia_vencimento) "
+        String comando = "INSERT INTO mensalidade (id_associado, valor_mensalidade) "
                 + "VALUES ((SELECT MAX(id_associado) FROM associado), ?);";
         
         PreparedStatement prepara  = c.prepareStatement(comando);
         
-        prepara.setInt(1, m.getMes());
-                System.out.println("sdsd");
+//        prepara.setInt(1, m.getMes());
+        prepara.setDouble(1, m.getValorMensalidade());
+                System.out.println("sdsd"+m.getValorMensalidade());
         prepara.executeUpdate();
     }
     

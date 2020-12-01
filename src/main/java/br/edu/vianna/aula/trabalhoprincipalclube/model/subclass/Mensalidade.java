@@ -16,13 +16,13 @@ public class Mensalidade {
     private boolean PagamentoPendente;
     private int mes;
     private double valorMensalidade;
-
+    
     public double getValorMensalidade() {
         return valorMensalidade;
     }
 
-    public void setValorMensalidade(double valorMensalidae) {
-        this.valorMensalidade = valorMensalidae;
+    public void setValorMensalidade(double valorMensalidade) {
+        this.valorMensalidade = valorMensalidade;
     }
 
     public Mensalidade() {
@@ -32,10 +32,10 @@ public class Mensalidade {
         this.mes = diaVencimento;
     }
 
-   
+    public Mensalidade(double valorMensalidade) {
+        this.valorMensalidade = valorMensalidade;
+    }
     
-    
-
     public Mensalidade(boolean PagamentoPendente, int mes, double valorMensalidade) {
         this.PagamentoPendente = PagamentoPendente;
         this.mes = mes;
